@@ -16,23 +16,40 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        //used to update movement
         horizontal = Input.GetAxisRaw("Horizontal");
-        KeyCode keyCode = KeyCode.W;
-        if (keyCode = new KeyCode.W && IsGrounded())
+
+        floatBollon();
+        Jumping();
+        Flip();
+    }
+
+    private void floatBollon()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {//sets gravity to negative
+            rb.gravityScale = -1f;
+            rb.velocity = rb.velocity /2.5f;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+            rb.gravityScale = 4;
+    }
+
+    private void Jumping()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
-        if (Input.GetButtonUp("Vertical") && rb.velocity.y > 0f)
+        if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-
-        Flip();
     }
 
     private void FixedUpdate()
-    {
+    {//Movement
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
