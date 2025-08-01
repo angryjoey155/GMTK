@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    private float speedCap = 5f;
+
     private void Awake()
     {
         player = setPlayer;
@@ -58,13 +60,19 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {//Movement
-        if (IsGrounded())
-            rb.drag = 10f;
-        else 
-            rb.drag = 0f;
         rb.velocity += new Vector2(horizontal * speed, 0);
-        if(rb.velocity.x >= 3f)
-            rb.drag = 10f;
+        if (rb.velocity.x >= speedCap || rb.velocity.x <= -speedCap)
+        {
+            float cappedSpeed = Mathf.Abs(rb.velocity.x);
+            cappedSpeed /= 1.1f;
+            cappedSpeed *= Mathf.Sign(rb.velocity.x);
+
+            rb.velocity = new Vector2(cappedSpeed, rb.velocity.y); 
+        }
+        if (IsGrounded()) 
+            rb.drag = 8;
+        else 
+            rb.drag = 0;
     }
 
     private bool IsGrounded()
