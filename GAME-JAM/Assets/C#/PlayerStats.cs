@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class PlayerStats
 {
-    public static int PlayerMaxAmmo = 3;
+    public static int PlayerMaxAmmo = 1;
     static int PlayerAmmo = PlayerMaxAmmo;
-    public static float PlayerMaxHealth = 3;
+    public static float PlayerMaxHealth = 1;
     static float PlayerHealth = PlayerMaxHealth;
     public static void ChangeAmmo(int amount)
     {
