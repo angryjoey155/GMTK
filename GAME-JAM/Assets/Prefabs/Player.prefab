@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 7465386568665189293}
   - component: {fileID: 4318046050952069681}
   - component: {fileID: 2683905491105198310}
+  - component: {fileID: 6985772685348090475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -334,3 +335,16 @@ MonoBehaviour:
   AimRadiusPrefab: {fileID: 6211382874098686587, guid: 31a769834fd586b42b16dfb1813ab1fb, type: 3}
   ShotGunLoc: {fileID: 2693795058488471330}
   RecoilPower: 300
+--- !u!114 &6985772685348090475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289932357176193685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a96e9f2847ded7478444126b74213f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowMotionTimescale: 0.2

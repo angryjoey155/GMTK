@@ -20,6 +20,10 @@ public class ShotGun : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetKeyUp(KeyCode.Mouse1))//aim out and shot
+        {
+
+        }
     }
 
     private void Shoot()
@@ -38,25 +42,6 @@ public class ShotGun : MonoBehaviour
         Destroy(AimRadius);
         Recoil(totalEnemies);
     }
-
-    //private void Recoil(int amountOfRecoil)
-    //{
-    //    //    Vector2 mousePosition = Input.mousePosition;
-    //    //    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-    //    //    Vector2 direction = mousePosition - (Vector2)transform.position;
-
-    //    Vector3 mousePosition = Input.mousePosition;;
-    //    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-    //    mousePosition.z = 0;
-
-    //    Vector3 direction = mousePosition - transform.position;
-    //    direction.z += transform.position.z;
-
-    //    direction.Normalize();
-
-    //    GetComponent<Movement>().AddForce(-direction);
-    //    Debug.Log(direction);
-    //}
     private void Recoil(int amountOfRecoil)
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -66,6 +51,8 @@ public class ShotGun : MonoBehaviour
         Vector3 direction = mousePosition - transform.position;
         direction.Normalize();
 
+
+        amountOfRecoil++;
         Vector2 temp;
         temp.x = direction.x * amountOfRecoil * RecoilPower;
         temp.y = direction.y * amountOfRecoil * RecoilPower;

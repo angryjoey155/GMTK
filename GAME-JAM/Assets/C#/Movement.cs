@@ -93,8 +93,5 @@ public class Movement : MonoBehaviour
     public void AddForce(Vector2 Force)
     {
         rb.velocity = Force;
-
-        //Vector2 force = new Vector2(10f, 0f);
-        //rb.AddForce(Force, ForceMode2D.Impulse);
     }
 }

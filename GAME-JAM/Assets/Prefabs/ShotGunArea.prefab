@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1601066831996479182}
   - component: {fileID: 6160416635116975705}
+  - component: {fileID: 1682909245237306709}
   m_Layer: 0
   m_Name: ShotgGunArea
   m_TagString: Untagged
@@ -191,3 +192,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1682909245237306709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345974756051921936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ca9933b03e42e4f8e47f80732130de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 6160416635116975705}
+  _frames:
+  - {fileID: 21300000, guid: a834dab120ab60345b5358702d95a76e, type: 3}
+  - {fileID: 21300000, guid: 154edca35da512c43a535c4f1d87e054, type: 3}
+  - {fileID: 21300000, guid: 9f6575edf2a0f084bb300f8a80042fd1, type: 3}
+  _SecondsBetweenFrames: 0.1
