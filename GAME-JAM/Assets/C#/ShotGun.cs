@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ShotGun : MonoBehaviour
@@ -7,27 +8,61 @@ public class ShotGun : MonoBehaviour
     [SerializeField] GameObject AimRadiusPrefab;
     [SerializeField] Transform ShotGunLoc;
     [SerializeField] int RecoilPower = 300;
+    private int _ammoConsumption = -1;
+    private bool _isReloading = false;
+    [SerializeField] Cooldown _reloadTime;
 
     GameObject AimRadius;
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))//aim in
+        if (Input.GetKeyDown(KeyCode.Mouse0))   //aim in
         {
-            AimState();
+            if (PlayerStats.GetPlayerAmmo() > 0 && !_isReloading)
+            {
+                AimState();
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0))//aim out and shot
+        if (Input.GetKeyUp(KeyCode.Mouse0))     //aim out and shot
         {
-            Shoot();
+            if (PlayerStats.GetPlayerAmmo() > 0)
+            {
+                Shoot();
+            }
+            else
+            {
+                //TODO
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))//aim out and shot
+        if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
-
+            Debug.Log("start reload");
+            _isReloading = true;
+            Movement.PlayerSpeed = Movement.PlayerSpeed / 2;
+            _reloadTime.StartCooldown();
+        }
+        bool huh = PlayerStats.GetPlayerAmmo() <= 0;
+        Debug.Log("_isReloading: "+ _isReloading + " !_reloadTime.IsCoolingDown: " + !_reloadTime.IsCoolingDown + " PlayerStats.GetPlayerAmmo() <= 0: " + huh);
+        if (_isReloading && !_reloadTime.IsCoolingDown && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) 
+        {
+            Debug.Log("end reload");
+            EndReload();
         }
     }
 
+    void EndReload()
+    {
+        _isReloading = false ;
+        Movement.PlayerSpeed = Movement.PlayerSpeed * 2;
+        PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
+        Debug.Log("Player ammo: "+ PlayerStats.GetPlayerAmmo());
+
+    }
     private void Shoot()
     {
+        PlayerStats.ChangeAmmo(_ammoConsumption);
+        Debug.Log("Player Cur Ammo: " + PlayerStats.GetPlayerAmmo());
+
         List<GameObject> temp = AimRadius.GetComponent<Killzone>().getAllEnemies();
         int totalEnemies = temp.Count;
 

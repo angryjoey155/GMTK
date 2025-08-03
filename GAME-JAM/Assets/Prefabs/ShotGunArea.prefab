@@ -91,9 +91,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.6260316, y: 4.15824}
-      - {x: -2.7087462, y: 4.153527}
-      - {x: 0.0074485242, y: 0.045318484}
+    - - {x: 1.5342941, y: 3.9314942}
+      - {x: -1.5330294, y: 3.9435768}
+      - {x: -0.009347409, y: 1.3218113}
   m_UseDelaunayMesh: 0
 --- !u!114 &7020304885549886692
 MonoBehaviour:
@@ -205,8 +205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 6160416635116975705}
-  _frames:
+  _image: {fileID: 0}
+  frames:
   - {fileID: 21300000, guid: a834dab120ab60345b5358702d95a76e, type: 3}
   - {fileID: 21300000, guid: 154edca35da512c43a535c4f1d87e054, type: 3}
   - {fileID: 21300000, guid: 9f6575edf2a0f084bb300f8a80042fd1, type: 3}
   _SecondsBetweenFrames: 0.1
+  _isSprite: 1

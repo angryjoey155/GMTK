@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private GameObject setPlayer;
 
     private float horizontal;
-    [SerializeField] private float speed = 8f;
+    [SerializeField] public static float PlayerSpeed = 2f;
     [SerializeField] private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-    private float speedCap = 5f;
+    private float speedCap = 0f;
 
     private void Awake()
     {
@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {//Movement
-        rb.velocity += new Vector2(horizontal * speed, 0);
+        rb.velocity += new Vector2(horizontal * PlayerSpeed, 0);
         if (rb.velocity.x >= speedCap || rb.velocity.x <= -speedCap)
         {
             float cappedSpeed = Mathf.Abs(rb.velocity.x);
@@ -70,9 +70,9 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(cappedSpeed, rb.velocity.y); 
         }
         if (IsGrounded()) 
-            rb.drag = 8;
+            rb.drag = 7;
         else 
-            rb.drag = 0;
+            rb.drag = 2;
     }
 
     private bool IsGrounded()
