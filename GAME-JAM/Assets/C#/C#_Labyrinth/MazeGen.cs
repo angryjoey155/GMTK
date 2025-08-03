@@ -2,20 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MazeGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject _player;
     [SerializeField] MazeCell nodePrefab;
     [SerializeField] Vector2Int mazeSize;
-    float removeChance = 0.50f;
     public static List<MazeCell> nodes = new List<MazeCell>();
+    [SerializeField] GameObject badGuy;
+            int i = 0;
+
 
     private void Start()
     {
         GenerateMazeInstant(mazeSize);
-        DisableValls(mazeSize);
     }
 
     void GenerateMazeInstant(Vector2Int size)
@@ -32,7 +34,7 @@ public class MazeGenerator : MonoBehaviour
             }
         }
         List<MazeCell> currentPath = new List<MazeCell>();
-        List<MazeCell> completedNodes = new List<MazeCell>();
+        List<MazeCell> completedNodes = new List<MazeCell>();   
 
         // Choose starting node
         currentPath.Add(nodes[UnityEngine.Random.Range(0, nodes.Count)]);
@@ -87,7 +89,6 @@ public class MazeGenerator : MonoBehaviour
                     possibleNextNodes.Add(currentNodeIndex - 1);
                 }
             }
-
             // Choose next node
             if (possibleDirections.Count > 0)
             {
@@ -121,53 +122,23 @@ public class MazeGenerator : MonoBehaviour
             else
             {
                 completedNodes.Add(currentPath[currentPath.Count - 1]);
-
                 currentPath.RemoveAt(currentPath.Count - 1);
             }
-        }
 
-    }
-
-    private void DisableValls(Vector2Int size)
-    {
-        List<MazeCell> deactivatedWalls = new List<MazeCell>();
-        for (int x = 0; x < size.x; x++)
-        {
-            for (int y = 0; y < size.y; y++)
+            MazeCell lastCell = currentPath[currentPath.Count - 1];
+            if (lastCell.HasFloor())
             {
-                int index = x * size.y + y;
-                MazeCell cell = nodes[index];
-
-                // Check each direction
-                for (int dir = 0; dir < 4; dir++)
-                {
-                    // Randomly skip with some chance
-                    if (UnityEngine.Random.value < removeChance)
-                    {
-                        // Get neighboring cell based on direction
-                        int neighborX = x, neighborY = y;
-
-                        switch (dir)
-                        {
-                            case 0: neighborX -= 1; break; // Left
-                            case 1: neighborX += 1; break; // Right
-                            case 2: neighborY -= 1; break; // Down
-                            case 3: neighborY += 1; break; // Up
-                        }
-
-                        // Ensure the neighbor is inside the grid
-                        if (neighborX >= 0 && neighborX < size.x && neighborY >= 0 && neighborY < size.y)
-                        {
-                            int neighborIndex = neighborX * size.y + neighborY;
-                            MazeCell neighbor = nodes[neighborIndex];
-                            // Remove wall between current and neighbor
-                            cell.DeactivateWall(dir);
-                            // Remove opposite wall on neighbor
-                            neighbor.DeactivateWall((dir + 2) % 4);
-                        }
-                    }
-                }
+                i++;
+                Vector3 deadEnd = new Vector3(lastCell.transform.position.x, lastCell.transform.position.y, 0);
+                Instantiate(badGuy, deadEnd, Quaternion.identity);
             }
+            if (possibleDirections.Count == 0 && i == 0)
+            {
+            }
+            else if (possibleDirections.Count > 0)
+                i = 0;
+            Debug.Log(lastCell); 
         }
+
     }
 }

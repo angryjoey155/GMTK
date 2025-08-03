@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 
 public class MazeCell : MonoBehaviour
 {
     [SerializeField] GameObject[] _walls;
-    [SerializeField] GameObject floor;
-    
+    [SerializeField] GameObject _ground;
     public void RemoveWall(int wallIndex)
     {
-        WallMenager.RemoveNode(_walls[wallIndex]);
         Destroy(_walls[wallIndex].gameObject);
-        WallMenager.RemoveNode(_walls[wallIndex]);
+        _walls[wallIndex] = null;
+        if (wallIndex == 3)
+            _ground = null;
     }
-    public void DeactivateWall(int dir)
+    public bool HasFloor()
     {
-            WallMenager.AddNode(_walls[dir]);
-            _walls[dir].SetActive(false);
+        if (_ground == null) return false;
+        else return true;
     }
 }
 

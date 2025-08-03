@@ -24,26 +24,9 @@ public class WallMenager : MonoBehaviour
             node.Remove(cell);
         }
     }
-    
-    public void Button()
-    {
-        for (int i = 0; i <= node.Count - 1; i++)
-        {
-            if (node[i] != null)
-            {
-                node[i].SetActive(true);
-                node.Remove(node[i]);
-            }
-            else
-                node.Remove(node[i]);
-        }
-        Debug.Log(node.Count);
-
-    }
 
     private void Update()
     {
-        Debug.Log(nodeFloor.Count);
     }
     private void Start()
     {

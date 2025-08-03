@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62bc7fe3a3717546ba884b29acbe111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
 --- !u!1 &3875641918645148072
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4681638b9878da54b975f4e2d98e7d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8289932357176193685, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
   nodePrefab: {fileID: 3454611014636471199, guid: fb845fd7ef30f074497710259c5a46df, type: 3}
   mazeSize: {x: 18, y: 11}
+  badGuy: {fileID: 1614019973110093903, guid: 97a28fec8c09ce148ad4ce7fc9caa378, type: 3}
