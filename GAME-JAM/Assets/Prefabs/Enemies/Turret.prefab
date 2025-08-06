@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 7408564365033414539, guid: 1948bb6abfc6bd94db853c34869d5fd9, type: 3}
   _timeBetweenShots:
-    cooldownTime: 0
+    cooldownTime: 0.6
   LayerMask:
     serializedVersion: 2
     m_Bits: 192
@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2295645985372738512}
   - component: {fileID: 5679449857226848983}
+  - component: {fileID: 7407303977210062845}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -342,3 +343,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7407303977210062845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253430925844255924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2458f1b6012954340b3d6fe014614c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lookAtCursor: 0
+  _LookAtPlayer: 1
+  _Target: {fileID: 0}

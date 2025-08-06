@@ -42,7 +42,6 @@ public class ShotGun : MonoBehaviour
             _reloadTime.StartCooldown();
         }
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
-        Debug.Log("_isReloading: "+ _isReloading + " !_reloadTime.IsCoolingDown: " + !_reloadTime.IsCoolingDown + " PlayerStats.GetPlayerAmmo() <= 0: " + huh);
         if (_isReloading && !_reloadTime.IsCoolingDown && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) 
         {
             Debug.Log("end reload");
@@ -55,13 +54,11 @@ public class ShotGun : MonoBehaviour
         _isReloading = false ;
         Movement.PlayerSpeed = Movement.PlayerSpeed * 2;
         PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
-        Debug.Log("Player ammo: "+ PlayerStats.GetPlayerAmmo());
 
     }
     private void Shoot()
     {
         PlayerStats.ChangeAmmo(_ammoConsumption);
-        Debug.Log("Player Cur Ammo: " + PlayerStats.GetPlayerAmmo());
 
         List<GameObject> temp = AimRadius.GetComponent<Killzone>().getAllEnemies();
         int totalEnemies = temp.Count;

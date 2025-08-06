@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         player = setPlayer;
+
     }
 
     void Update()

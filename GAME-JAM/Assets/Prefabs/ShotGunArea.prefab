@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2458f1b6012954340b3d6fe014614c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lookAtCursor: 1
+  _LookAtPlayer: 0
+  _Target: {fileID: 0}
 --- !u!60 &9188904455239840617
 PolygonCollider2D:
   m_ObjectHideFlags: 0

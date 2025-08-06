@@ -47,7 +47,7 @@ public class TurretAI : MonoBehaviour
     {
         if (isAttacking)        //In Attacking State
         {
-            Gun.transform.LookAt(Movement.player.transform.position);
+            //Gun.transform.LookAt(Movement.player.transform.position);
             if (!_timeBetweenShots.IsCoolingDown)
             {
                 Instantiate(_projectile, transform.position, Quaternion.identity);

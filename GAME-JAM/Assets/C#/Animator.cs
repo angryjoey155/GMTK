@@ -8,7 +8,7 @@ public class Animator : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Image _image;
-    [SerializeField] public List<Sprite> frames = new List<Sprite>();
+    [SerializeField] public List<Sprite> frames = new List<Sprite>(); 
     [SerializeField] float _SecondsBetweenFrames;
     [SerializeField] bool _isSprite = true;
     int _currentFrame = 0;
@@ -59,5 +59,9 @@ public class Animator : MonoBehaviour
             _timer = _SecondsBetweenFrames;
             _spriteRenderer.sprite = frames[_currentFrame];
         }
+    }
+    public void SetNewFrames(List<Sprite> newFrames)
+    {
+        frames = newFrames;
     }
 }
