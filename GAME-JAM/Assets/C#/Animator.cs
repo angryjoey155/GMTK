@@ -46,6 +46,11 @@ public class Animator : MonoBehaviour
 
     private void ChangeSprite()
     {
+        if (frames == null)
+        {
+            _spriteRenderer.sprite = null;
+            return;
+        }
         if (_timer >= 0)
         {
             _timer -= Time.deltaTime;

@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] List<Sprite> _RunningFrame = new List<Sprite>();
     [SerializeField] List<Sprite> _IdleFrame = new List<Sprite>();
+    [SerializeField] List<Sprite> _HandGunFrame = new List<Sprite>();
+    [SerializeField] Animator _handAnimator;
 
 
     private bool isAttacking;
@@ -86,17 +88,20 @@ public class EnemyAI : MonoBehaviour
             if (Mathf.Abs(_spawnLoc.position.x - transform.position.x) >= 0.1f)
                 rb.velocity = new Vector2(Direction.x * _speed, 0);
         }
-        if (rb.velocity.x > 0.05f || rb.velocity.x < -0.05f) //is moving 
+        if (rb.velocity.x > 0.05f || rb.velocity.x < -0.05f ) //is moving 
         {
-            Debug.Log("1");
-            Animator.SetNewFrames(_RunningFrame);
-            canSwapFrames = false;
+            if (Animator.frames[0] != _RunningFrame[0])
+            {
+                Debug.Log("1");
+                Animator.SetNewFrames(_RunningFrame);
+                _handAnimator.SetNewFrames(_HandGunFrame);
+            }
         }
-        else                     //Standing still
+        else if( Animator.frames[0] != _IdleFrame[0])                     //Standing still
         {
             Debug.Log("2");
             Animator.SetNewFrames(_IdleFrame);
-            canSwapFrames = false;
+            _handAnimator.SetNewFrames(null);
         }
     }
 
