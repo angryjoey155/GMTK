@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AimRadiusPrefab: {fileID: 6211382874098686587, guid: 31a769834fd586b42b16dfb1813ab1fb, type: 3}
   ShotGunLoc: {fileID: 2693795058488471330}
-  RecoilPower: 300
+  RecoilPower: 10
   _reloadTime:
     cooldownTime: 3
 --- !u!114 &6985772685348090475

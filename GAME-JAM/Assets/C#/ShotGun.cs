@@ -90,7 +90,6 @@ public class ShotGun : MonoBehaviour
         temp.y = direction.y * amountOfRecoil * RecoilPower;
 
         GetComponent<Movement>().AddForce(-temp);
-        Debug.Log(temp);
     }
 
 

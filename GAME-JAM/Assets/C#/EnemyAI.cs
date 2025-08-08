@@ -15,10 +15,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] List<Sprite> _IdleFrame = new List<Sprite>();
     [SerializeField] List<Sprite> _HandGunFrame = new List<Sprite>();
     [SerializeField] Animator _handAnimator;
-
+    [SerializeField] Transform ShootPoint;
 
     private bool isAttacking;
-    private bool canSwapFrames;
     private bool isFacingRight = true;
     private Rigidbody2D rb;
     private float maxRange = 1;
@@ -32,6 +31,7 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _spawnLoc.SetParent(null);
         Animator = GetComponent<Animator>();
+        _handAnimator.SetNewFrames(null);
     }
 
     // Update is called once per frame
@@ -75,7 +75,8 @@ public class EnemyAI : MonoBehaviour
 
             if (!_timeBetweenShots.IsCoolingDown)
             {
-                Instantiate(_projectile, transform.position, Quaternion.identity);
+                GameObject Fish = Instantiate(_projectile, ShootPoint.position, Quaternion.identity);
+                Fish.transform.localScale = new Vector3(0.5f,0.5f,1);
                 _timeBetweenShots.StartCooldown();
             }
         }
@@ -88,32 +89,19 @@ public class EnemyAI : MonoBehaviour
             if (Mathf.Abs(_spawnLoc.position.x - transform.position.x) >= 0.1f)
                 rb.velocity = new Vector2(Direction.x * _speed, 0);
         }
-        if (rb.velocity.x > 0.05f || rb.velocity.x < -0.05f ) //is moving 
+        if (rb.velocity.x > 0.05f || rb.velocity.x < -0.05f )       //is moving 
         {
             if (Animator.frames[0] != _RunningFrame[0])
             {
-                Debug.Log("1");
                 Animator.SetNewFrames(_RunningFrame);
                 _handAnimator.SetNewFrames(_HandGunFrame);
             }
         }
-        else if( Animator.frames[0] != _IdleFrame[0])                     //Standing still
+        else if( Animator.frames[0] != _IdleFrame[0])               //Standing still
         {
-            Debug.Log("2");
             Animator.SetNewFrames(_IdleFrame);
             _handAnimator.SetNewFrames(null);
         }
-    }
-
-    private void CheckNewState(List<Sprite> Frames)
-    {
-        if (Animator.frames[0] == Frames[0])
-        {
-            Debug.Log("3");
-
-            canSwapFrames = true;
-        }
-            
     }
 
     private void Flip()

@@ -19,6 +19,7 @@ public static class PlayerStats
         if (PlayerHealth + amount >= 0) PlayerHealth += amount;                         //if player under or = to 0 then don't change
         if (PlayerMaxHealth < PlayerHealth + amount) PlayerHealth = PlayerMaxHealth;    //if overflow then set health to max
     }
+
     public static int GetPlayerAmmo()
     {
         return PlayerAmmo;

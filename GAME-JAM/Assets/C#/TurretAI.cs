@@ -9,6 +9,7 @@ public class TurretAI : MonoBehaviour
     [SerializeField] Cooldown _timeBetweenShots;
     [SerializeField] LayerMask LayerMask;
     [SerializeField] GameObject Gun;
+    [SerializeField] Transform ShotLoc;
 
     private bool isAttacking;
     private bool isFacingRight = true;
@@ -50,7 +51,7 @@ public class TurretAI : MonoBehaviour
             //Gun.transform.LookAt(Movement.player.transform.position);
             if (!_timeBetweenShots.IsCoolingDown)
             {
-                Instantiate(_projectile, transform.position, Quaternion.identity);
+                Instantiate(_projectile, ShotLoc.position, Quaternion.identity);
                 _timeBetweenShots.StartCooldown();
             }
         }
