@@ -38,7 +38,6 @@ public class ShotGun : MonoBehaviour
         {
             Debug.Log("start reload");
             _isReloading = true;
-            Movement.PlayerSpeed = Movement.PlayerSpeed / 2;
             _reloadTime.StartCooldown();
         }
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
@@ -52,7 +51,6 @@ public class ShotGun : MonoBehaviour
     void EndReload()
     {
         _isReloading = false ;
-        Movement.PlayerSpeed = Movement.PlayerSpeed * 2;
         PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
 
     }

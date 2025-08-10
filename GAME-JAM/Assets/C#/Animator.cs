@@ -17,6 +17,8 @@ public class Animator : MonoBehaviour
     void Start()
     {
         _timer = _SecondsBetweenFrames;
+        if(!_isSprite)
+            _image = GetComponent<Image>();
     }
 
     private void Update()

@@ -10,15 +10,12 @@ public class MazeCell : MonoBehaviour
     [SerializeField] GameObject _ground;
     public void RemoveWall(int wallIndex)
     {
-        Destroy(_walls[wallIndex].gameObject);
-        _walls[wallIndex] = null;
-        if (wallIndex == 3)
-            _ground = null;
+        _walls[wallIndex].gameObject.SetActive(false);
     }
-    public bool HasFloor()
+    public bool HasFloor(int wallIndex)
     {
-        if (_ground == null) return false;
-        else return true;
+        if (_walls[wallIndex].activeInHierarchy) return true;
+        else return false;
     }
 }
 

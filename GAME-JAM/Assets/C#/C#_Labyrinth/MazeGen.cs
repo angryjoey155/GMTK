@@ -10,16 +10,35 @@ public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] MazeCell nodePrefab;
     [SerializeField] Vector2Int mazeSize;
-    public static List<MazeCell> nodes = new List<MazeCell>();
     [SerializeField] GameObject badGuy;
-            int i = 0;
+    [SerializeField] GameObject[] noFloorEnemies;
 
+    public static List<MazeCell> nodes = new List<MazeCell>();
+    private List<MazeCell> occupiedCells = new List<MazeCell>();
+    int i = 0;
 
     private void Start()
     {
         GenerateMazeInstant(mazeSize);
+        SpawnEnemies();
     }
-
+    void SpawnEnemies()
+    {
+        for(int i = 0; i < nodes.Count - 1;  i++)
+        {
+            Vector3 spawnPoint = new Vector3(nodes[i].transform.position.x, nodes[i].transform.position.y, 0);
+            if(UnityEngine.Random.value < 0.10f && nodes[i].HasFloor(3) && !occupiedCells.Contains(nodes[i]))
+            {
+                Instantiate(badGuy, spawnPoint, Quaternion.identity);
+                occupiedCells.Add(nodes[i]);
+            }
+            else if (UnityEngine.Random.value < 0.15f && !occupiedCells.Contains(nodes[i]))
+            {
+                Instantiate(noFloorEnemies[UnityEngine.Random.Range(0, noFloorEnemies.Length)], spawnPoint, Quaternion.identity);
+                occupiedCells.Add(nodes[i]);
+            }
+        }
+    }
     void GenerateMazeInstant(Vector2Int size)
     {
 
@@ -125,19 +144,21 @@ public class MazeGenerator : MonoBehaviour
                 currentPath.RemoveAt(currentPath.Count - 1);
             }
 
-            MazeCell lastCell = currentPath[currentPath.Count - 1];
-            if (lastCell.HasFloor())
+            MazeCell lastCell = nodes[currentNodeIndex];
+
+            if (possibleDirections.Count == 0 && i == 0)             //check if dead end
             {
-                i++;
-                Vector3 deadEnd = new Vector3(lastCell.transform.position.x, lastCell.transform.position.y, 0);
-                Instantiate(badGuy, deadEnd, Quaternion.identity);
-            }
-            if (possibleDirections.Count == 0 && i == 0)
-            {
+                if (lastCell.HasFloor(3))                           //check if dead end has floor 
+                {
+                    i++;
+                    Vector3 deadEnd = new Vector3(nodes[currentNodeIndex].transform.position.x, nodes[currentNodeIndex].transform.position.y, 0);
+                    Instantiate(badGuy, deadEnd, Quaternion.identity);
+                    occupiedCells.Add(lastCell);
+
+                }
             }
             else if (possibleDirections.Count > 0)
                 i = 0;
-            Debug.Log(lastCell); 
         }
 
     }
