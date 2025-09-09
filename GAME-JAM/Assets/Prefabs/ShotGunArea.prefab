@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8023692442301403587}
   - component: {fileID: 9188904455239840617}
   - component: {fileID: 7020304885549886692}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotGunArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 1601066831996479182}
   - component: {fileID: 6160416635116975705}
   - component: {fileID: 1682909245237306709}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotgGunArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1245141138124501665}
   - component: {fileID: 4780529376589821168}
   - component: {fileID: 129459013409516034}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

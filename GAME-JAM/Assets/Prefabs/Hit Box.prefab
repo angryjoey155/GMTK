@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6388601124364834069}
   - component: {fileID: 7543719901176019391}
   - component: {fileID: 7947686729597960478}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hit Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7094487804810531451}
   - component: {fileID: 7891578280279009397}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
