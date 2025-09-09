@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     public static GameObject player;
     [SerializeField] private GameObject setPlayer;
 
+    private UnityEngine.Animator animator;
+
     private float horizontal;
     [SerializeField] public static float PlayerSpeed = 2f;
     [SerializeField] private float jumpingPower = 16f;
@@ -23,6 +25,10 @@ public class Movement : MonoBehaviour
     {
         player = setPlayer;
 
+    }
+    private void Start()
+    {
+        animator = GetComponent<UnityEngine.Animator>();
     }
 
     void Update()
@@ -74,6 +80,11 @@ public class Movement : MonoBehaviour
             rb.drag = 7;
         else 
             rb.drag = 2;
+
+        if (rb.velocity != Vector2.zero)
+            animator.Play("Run");
+        else
+            animator.Play("Idle");
     }
 
     private bool IsGrounded()

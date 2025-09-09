@@ -13,6 +13,8 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] GameObject badGuy;
     [SerializeField] GameObject[] noFloorEnemies;
 
+    static int enemyCount;
+
     public static List<MazeCell> nodes = new List<MazeCell>();
     private List<MazeCell> occupiedCells = new List<MazeCell>();
     int i = 0;
@@ -31,11 +33,13 @@ public class MazeGenerator : MonoBehaviour
             {
                 Instantiate(badGuy, spawnPoint, Quaternion.identity);
                 occupiedCells.Add(nodes[i]);
+                enemyCount++;
             }
             else if (UnityEngine.Random.value < 0.15f && !occupiedCells.Contains(nodes[i]))
             {
                 Instantiate(noFloorEnemies[UnityEngine.Random.Range(0, noFloorEnemies.Length)], spawnPoint, Quaternion.identity);
                 occupiedCells.Add(nodes[i]);
+                enemyCount++;
             }
         }
     }

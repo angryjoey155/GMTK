@@ -122,28 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &270099292 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8369232446870168992, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
-  m_PrefabInstance: {fileID: 1872548055}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &286815473 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2758699123299751023, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
-  m_PrefabInstance: {fileID: 1872548055}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &378875168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1705357010450306308, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
@@ -169,17 +147,6 @@ MonoBehaviour:
   - {fileID: 1897202498, guid: fc880665a7fac074c93ab6c70c6fa565, type: 3}
   _SecondsBetweenFrames: 0.3
   _isSprite: 0
---- !u!114 &547858368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7674773248804529385, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
-  m_PrefabInstance: {fileID: 1872548055}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &672932623
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +601,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2152172418412979147, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
     - {fileID: 6779589981565978098, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
+    - {fileID: 8857171543676136357, guid: 1d6c223683e94e44aa422538830c9a54, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -667,13 +635,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e30e756eff9ac4e8a70d1222e7f3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthArray: []
-  ammoArray:
-  - {fileID: 286815473}
-  - {fileID: 547858368}
-  - {fileID: 270099292}
-  brokenSprite: {fileID: 21300000, guid: 3902f2098798b634ca7a9880d205ed50, type: 3}
-  fullSprite: {fileID: 1202868382, guid: c1c3351d6378fcf45b54b480d330b2ef, type: 3}
+  health: []
+  ammo: []
+  healthResource: []
+  ammoResource: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

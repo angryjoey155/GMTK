@@ -6,24 +6,37 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
-    [SerializeField] Image[] healthArray;
-    [SerializeField] Image[] ammoArray;
-    [SerializeField] Sprite brokenSprite;
-    [SerializeField] Sprite fullSprite;
-
+    [SerializeField] GameObject[] health;
+    [SerializeField] GameObject[] ammo;
+    [SerializeField] Resourses[] healthResource;
+    [SerializeField] Resourses[] ammoResource;
+//zero scalability i hate this so much
 
     private void Update()
     {
-        StatChange((int)PlayerStats.GetPlayerHealth(), healthArray);
-        StatChange(PlayerStats.GetPlayerAmmo(), ammoArray);
+        HealthChange((int)PlayerStats.GetPlayerHealth(), health);
+        AmmoChange(PlayerStats.GetPlayerAmmo(), ammo);
     }
     
 
-    void StatChange(int i, Image[] imageArray)
+    void HealthChange(int i, GameObject[] objArray)
     {
-        for (int j = 0; j < imageArray.Length; j++)
+        for (int j = 0; j < objArray.Length; j++)
         {
-            imageArray[j].sprite = (j < i) ? fullSprite : brokenSprite;
+            if (j < i)
+                healthResource[j].ChangeAnim("FullHeart");
+            else
+                healthResource[j].ChangeAnim("BrokenHeart");
+        }
+    }
+    void AmmoChange(int i, GameObject[] objArray)
+    {
+        for (int j = 0; j < objArray.Length; j++)
+        {
+            if (j < i)
+                ammoResource[j].ChangeAnim("FullAmmo");
+            else
+                ammoResource[j].ChangeAnim("BrokenAmmo");
         }
     }
 }

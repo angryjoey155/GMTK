@@ -82,6 +82,7 @@ MonoBehaviour:
   badGuy: {fileID: 1614019973110093903, guid: 97a28fec8c09ce148ad4ce7fc9caa378, type: 3}
   noFloorEnemies:
   - {fileID: 1909185642470923311, guid: 66098f7dabbdd1d4c99447a3355a023e, type: 3}
+  - {fileID: 782553269618638144, guid: 968c75646517ff14e943af76d875a216, type: 3}
 --- !u!1001 &6362095090854610539
 PrefabInstance:
   m_ObjectHideFlags: 0
