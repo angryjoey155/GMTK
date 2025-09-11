@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: 21eda99574ded00489040d3d1e79a2c4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 138
+        height: 267
+      alignment: 9
+      pivot: {x: 0.6710694, y: 0.55090725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a24b0637ae61f4d99240fe9ae2820a
+      internalID: 301640883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 17
+        width: 95
+        height: 239
+      alignment: 9
+      pivot: {x: 0.46234804, y: 0.5448983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb86a816f28bc834f80c144281d29896
+      internalID: -1692668405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 12
+        width: 121
+        height: 241
+      alignment: 9
+      pivot: {x: 0.49999976, y: 0.5178102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116ab777eb12a7248824b09df0df564c
+      internalID: 88462796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 12
+        width: 104
+        height: 237
+      alignment: 9
+      pivot: {x: 0.49312094, y: 0.5150924}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d49fcc182441847a404e074d0e54a4
+      internalID: 734353878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_4
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 20
+        width: 152
+        height: 193
+      alignment: 9
+      pivot: {x: 0.457641, y: 0.26468813}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d28a8a562752e8945a7b06270f35eb83
+      internalID: -2001599902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_5
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 0
+        width: 168
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7fea700fab5b84eaf1248bf9561df8
+      internalID: -1061897956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_6
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 7
+        width: 161
+        height: 243
+      alignment: 9
+      pivot: {x: 0.52665985, y: 0.78261966}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1a201dea42c034bb447bdf625e9e4b
+      internalID: -1833683908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MS Paint _ Microsoft Paint Online (5) (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 0
+        width: 176
+        height: 267
+      alignment: 9
+      pivot: {x: 0.5284521, y: 0.7384602}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bb14d5d76c13f4fb2cc4501ea4b737
+      internalID: 241030324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MS Paint _ Microsoft Paint Online (5) (1)_0: 301640883
+      MS Paint _ Microsoft Paint Online (5) (1)_1: -1692668405
+      MS Paint _ Microsoft Paint Online (5) (1)_2: 88462796
+      MS Paint _ Microsoft Paint Online (5) (1)_3: 734353878
+      MS Paint _ Microsoft Paint Online (5) (1)_4: -2001599902
+      MS Paint _ Microsoft Paint Online (5) (1)_5: -1061897956
+      MS Paint _ Microsoft Paint Online (5) (1)_6: -1833683908
+      MS Paint _ Microsoft Paint Online (5) (1)_7: 241030324
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

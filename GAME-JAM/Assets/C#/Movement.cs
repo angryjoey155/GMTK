@@ -81,10 +81,27 @@ public class Movement : MonoBehaviour
         else 
             rb.drag = 2;
 
+        Anims();
+    }
+    private void Anims()
+    {
+        if (PlayerStats.GetPlayerHealth() <= 0)
+        { 
+            animator.Play("Dead");
+            this.enabled = false;
+            return;
+        }    
+        
         if (rb.velocity != Vector2.zero)
             animator.Play("Run");
         else
             animator.Play("Idle");
+
+    }
+
+    private void OnDeath()
+    {
+        PauseMenu.thisPauseMenu.DeathScreen();
     }
 
     private bool IsGrounded()
