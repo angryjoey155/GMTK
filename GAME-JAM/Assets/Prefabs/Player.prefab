@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setPlayer: {fileID: 8289932357176193685}
-  jumpingPower: 16
+  jumpingPower: 24
   rb: {fileID: 3285916095000013721}
   groundCheck: {fileID: 676537323252866231}
   groundLayer:
