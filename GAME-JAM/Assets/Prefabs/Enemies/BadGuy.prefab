@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 5180135298188579159}
   - component: {fileID: 8382737160858912933}
   - component: {fileID: 7560973785338498932}
-  m_Layer: 0
+  - component: {fileID: 1267626373739925911}
+  m_Layer: 2
   m_Name: BadGuy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -205,6 +206,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: db2b1f6a2aff87f4ab9fcba4503ee3da, type: 3}
   _handAnimator: {fileID: 6946794922658852887}
   ShootPoint: {fileID: 7148379087372592912}
+--- !u!114 &1267626373739925911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614019973110093903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe425a4b8efb71845ae323278215a9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &4022603890168380933
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3069398752980453079}
   - component: {fileID: 8943466056909783723}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HandRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2215373419786474720}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RaycastLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2176717658570356402}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +341,7 @@ GameObject:
   - component: {fileID: 2952016065116138885}
   - component: {fileID: 8959358351756384028}
   - component: {fileID: 6946794922658852887}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7148379087372592912}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GunLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}

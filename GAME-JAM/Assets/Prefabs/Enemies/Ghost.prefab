@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3272319254752845759}
   - component: {fileID: 6351778367835497732}
   - component: {fileID: 7500350694876460115}
-  m_Layer: 0
+  - component: {fileID: 7324892876298716300}
+  m_Layer: 2
   m_Name: Ghost
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -139,6 +140,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3ef40b1de207eda429fc07660e6f3d52, type: 3}
   _SecondsBetweenFrames: 0.3
   _isSprite: 1
+--- !u!114 &7324892876298716300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782553269618638144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe425a4b8efb71845ae323278215a9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &7774791946277377231
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 820629723742478347}
   - component: {fileID: 3951452902190385}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -36,14 +36,12 @@ public class ShotGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
-            Debug.Log("start reload");
             _isReloading = true;
             _reloadTime.StartCooldown();
         }
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
         if (_isReloading && !_reloadTime.IsCoolingDown && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) 
         {
-            Debug.Log("end reload");
             EndReload();
         }
     }
@@ -57,8 +55,11 @@ public class ShotGun : MonoBehaviour
     private void Shoot()
     {
         PlayerStats.ChangeAmmo(_ammoConsumption);
-
-        List<GameObject> temp = AimRadius.GetComponent<Killzone>().getAllEnemies();
+        List<GameObject> temp = null;
+        try
+        {
+            temp = AimRadius.GetComponent<Killzone>().getAllEnemies();
+        
         int totalEnemies = temp.Count;
 
         if (temp != null)
@@ -71,6 +72,8 @@ public class ShotGun : MonoBehaviour
 
         Destroy(AimRadius);
         Recoil(totalEnemies);
+        }
+        catch { }
     }
     private void Recoil(int amountOfRecoil)
     {

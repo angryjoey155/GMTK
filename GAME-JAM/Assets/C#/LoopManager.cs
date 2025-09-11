@@ -7,29 +7,57 @@ public class LoopManager : MonoBehaviour
     static int _enemyCounter;
     int _maxCounter;
     GameObject[] _enemyList;
+    Vector3[] _enemyLoc;
+    int[] _enemyType;
+
+    [SerializeField] private List<GameObject> _enemies;
+    [SerializeField] private static Cooldown _timeBetweenRounds = new Cooldown();
+    [SerializeField] private AudioClip _countdownAC;
 
     static public void ChangeEnemyCounter(int amount)
     {
         _enemyCounter += amount;
+        _timeBetweenRounds.StartCooldown();
     }
     // Start is called before the first frame update
     void Start()
     {
-        _enemyCounter = GameObject.FindGameObjectsWithTag("enemy").Length;
-        _maxCounter = _enemyCounter;
+        _timeBetweenRounds.cooldownTime = 3f;
+        _maxCounter = GameObject.FindGameObjectsWithTag("enemy").Length;
+        _enemyCounter = _maxCounter;
         _enemyList = new GameObject[_maxCounter];
+        _enemyLoc = new Vector3[_maxCounter];
+        _enemyType = new int[_maxCounter];
         _enemyList = GameObject.FindGameObjectsWithTag("enemy");
+        for(int i = 0;  i < _enemyList.Length; i++)
+        {
+            Debug.Log(_enemyList[i].name);
+            _enemyLoc[i] = _enemyList[i].transform.position;
+            _enemyType[i] = _enemyList[i].GetComponent<LoopSetter>().type;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(_enemyCounter <= 0)
+        if (_enemyCounter <= 0)
         {
-            _enemyCounter = _maxCounter;
-            foreach (var enemy in _enemyList) {
-                Instantiate(enemy, enemy.transform.position, Quaternion.identity);
+            if (!_timeBetweenRounds.IsCoolingDown)
+            {
+                _enemyCounter = _maxCounter;
+                PLaceGuys();
             }
+            //play final kill sounds here
+            AudioSource.PlayClipAtPoint(_countdownAC, transform.position);
+
+        }
+    }
+
+    private void PLaceGuys()
+    {
+        for (int i = 0; i < _maxCounter; i++)
+        {
+            Instantiate(_enemies[_enemyType[i]], _enemyLoc[i], Quaternion.identity);
         }
     }
 }

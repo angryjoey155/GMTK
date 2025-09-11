@@ -25,10 +25,14 @@ public class GhostAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        _spawnLoc.SetParent(null);
-        Animator = GetComponent<Animator>();
-        _handAnimator.SetNewFrames(null);
+        try
+        {
+            rb = GetComponent<Rigidbody2D>();
+            _spawnLoc.SetParent(null);
+            Animator = GetComponent<Animator>();
+            _handAnimator.SetNewFrames(null);
+        }
+        catch (Exception e) { }
     }
 
     // Update is called once per frame

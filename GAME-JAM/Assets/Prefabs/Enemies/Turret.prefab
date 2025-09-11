@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 237387377030539581}
   - component: {fileID: 329925165093486365}
   - component: {fileID: 7770041573440060387}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,8 @@ GameObject:
   - component: {fileID: 1101986488121847089}
   - component: {fileID: 1979422605825293876}
   - component: {fileID: 6884998537923018760}
-  m_Layer: 0
+  - component: {fileID: 774764131104422463}
+  m_Layer: 2
   m_Name: Turret
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -194,6 +195,19 @@ MonoBehaviour:
     m_Bits: 192
   Gun: {fileID: 7253430925844255924}
   ShotLoc: {fileID: 7084284267877010603}
+--- !u!114 &774764131104422463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909185642470923311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe425a4b8efb71845ae323278215a9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
 --- !u!1 &5575170524094689401
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7084284267877010603}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShotLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +251,7 @@ GameObject:
   - component: {fileID: 5679449857226848983}
   - component: {fileID: 7407303977210062845}
   - component: {fileID: 5598061753471304920}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
