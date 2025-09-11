@@ -42,17 +42,20 @@ public class LoopManager : MonoBehaviour
     {
         if (_enemyCounter <= 0)
         {
+            if (readyToPlay)
+            {
+                AudioSource.PlayClipAtPoint(_countdownAC, transform.position);
+                readyToPlay = false;
+            }
             if (!_timeBetweenRounds.IsCoolingDown)
             {
                 _enemyCounter = _maxCounter;
                 PLaceGuys();
+                readyToPlay = true;
             }
-            //play final kill sounds here
-            AudioSource.PlayClipAtPoint(_countdownAC, transform.position);
-
         }
     }
-
+    bool readyToPlay = true;
     private void PLaceGuys()
     {
         for (int i = 0; i < _maxCounter; i++)
