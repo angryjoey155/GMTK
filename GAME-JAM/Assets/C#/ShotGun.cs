@@ -13,6 +13,8 @@ public class ShotGun : MonoBehaviour
     [SerializeField] Cooldown _reloadTime;
 
     GameObject AimRadius;
+
+    [SerializeField] GameObject _reloadBar;
     
     void Update()
     {
@@ -37,6 +39,7 @@ public class ShotGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
             _isReloading = true;
+            _reloadBar.SetActive(true);
             _reloadTime.StartCooldown();
         }
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
@@ -50,6 +53,7 @@ public class ShotGun : MonoBehaviour
     {
         _isReloading = false ;
         PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
+        _reloadBar.SetActive(false);
 
     }
     private void Shoot()

@@ -23,4 +23,8 @@ public class StartButton : MonoBehaviour
     {
         Application.Quit();
     }
+    public void RestartButton()
+    {
+
+    }
 }

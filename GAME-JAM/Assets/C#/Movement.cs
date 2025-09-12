@@ -40,16 +40,20 @@ public class Movement : MonoBehaviour
         Jumping();
         Flip();
     }
-
+    bool baloon;
     private void floatBollon()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {//sets gravity to negative
+            baloon = true;
             rb.gravityScale = -1f;
             rb.velocity = rb.velocity /2.5f;
         }
         if (Input.GetKeyUp(KeyCode.Space))
+        {
+            baloon= false;
             rb.gravityScale = 4;
+        }
     }
 
     private void Jumping()
@@ -88,18 +92,24 @@ public class Movement : MonoBehaviour
         if (PlayerStats.GetPlayerHealth() <= 0)
         { 
             animator.Play("Dead");
+            rb.gravityScale = 1f;
             this.enabled = false;
             return;
-        }    
-        
-        if (rb.velocity != Vector2.zero)
+        }
+
+        if (baloon)
+        {
+            animator.Play("Baloon");
+        }
+
+        if (rb.velocity != Vector2.zero && !baloon)
             animator.Play("Run");
-        else
+        else if (!baloon)
             animator.Play("Idle");
 
     }
 
-    private void OnDeath()
+    private void OnDeath() //on a animation event
     {
         PauseMenu.thisPauseMenu.DeathScreen();
     }

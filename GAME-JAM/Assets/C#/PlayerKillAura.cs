@@ -14,7 +14,7 @@ public class PlayerKillAura : MonoBehaviour
     }
     private void Start()
     {
-        Invoke("DeleteSelf", 1f);
+        Invoke("DeleteSelf", 0.5f);
     }
     void DeleteSelf()
     {
