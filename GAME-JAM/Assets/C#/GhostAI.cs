@@ -69,7 +69,7 @@ public class GhostAI : MonoBehaviour
 
             Vector2 Direction = Movement.player.gameObject.transform.position - transform.position;
             Direction.Normalize();
-            rb.velocity = Direction;
+            rb.velocity = Direction * _speed;
 
             if (!_timeBetweenShots.IsCoolingDown)
             {

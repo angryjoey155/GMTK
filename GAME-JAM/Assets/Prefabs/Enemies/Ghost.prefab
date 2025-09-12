@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32f03eb6ef154d41a38bb8e08bdf1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 2
   _projectile: {fileID: 6666347970173385501, guid: 9b72ac5490b5cf64785c84c0e24b8500, type: 3}
   _spawnLoc: {fileID: 0}
   _timeBetweenShots:

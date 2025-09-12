@@ -61,11 +61,12 @@ public class ShotGun : MonoBehaviour
     {
         PlayerStats.ChangeAmmo(_ammoConsumption);
         List<GameObject> temp = null;
+        int totalEnemies = 0    ;
         try
         {
             temp = AimRadius.GetComponent<Killzone>().getAllEnemies();
         
-        int totalEnemies = temp.Count;
+        totalEnemies = temp.Count;
 
         if (temp != null)
         {
@@ -79,6 +80,8 @@ public class ShotGun : MonoBehaviour
         Recoil(totalEnemies);
         }
         catch { }
+        if(totalEnemies >= 1)
+            PlayerStats.ChangeAmmo(1);
     }
     private void Recoil(int amountOfRecoil)
     {

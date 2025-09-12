@@ -31,7 +31,6 @@ public class LoopManager : MonoBehaviour
         _enemyList = GameObject.FindGameObjectsWithTag("enemy");
         for(int i = 0;  i < _enemyList.Length; i++)
         {
-            Debug.Log(_enemyList[i].name);
             _enemyLoc[i] = _enemyList[i].transform.position;
             _enemyType[i] = _enemyList[i].GetComponent<LoopSetter>().type;
         }

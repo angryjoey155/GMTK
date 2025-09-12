@@ -19,7 +19,7 @@ public class MazeGenerator : MonoBehaviour
     private List<MazeCell> occupiedCells = new List<MazeCell>();
     int i = 0;
 
-    private void Start()
+    private void Awake()
     {
         GenerateMazeInstant(mazeSize);
         SpawnEnemies();
