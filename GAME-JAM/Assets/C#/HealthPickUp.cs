@@ -19,8 +19,11 @@ public class HealthPickUp : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(HealAC, transform.position);
-        PlayerStats.ChangeHealth(5);
-        Destroy(gameObject);
+        if (collision.CompareTag("Player"))
+        {
+            AudioSource.PlayClipAtPoint(HealAC, transform.position);
+            PlayerStats.ChangeHealth(5);
+            Destroy(gameObject);
+        }
     }
 }

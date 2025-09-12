@@ -27,14 +27,13 @@ public class ShotGun : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))     //aim out and shot
         {
-            if (PlayerStats.GetPlayerAmmo() > 0)
+            if (!isShotCancelled)
             {
-                Shoot();
-                AudioSource.PlayClipAtPoint(_shootAC, transform.position);
+                EndOfShot();
             }
             else
             {
-                //TODO
+                isShotCancelled = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
@@ -46,7 +45,26 @@ public class ShotGun : MonoBehaviour
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
         if (_isReloading && !_reloadTime.IsCoolingDown && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) 
         {
-            EndReload();
+                EndReload();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            Destroy(AimRadius);
+            isShotCancelled = true;
+        }
+    }
+    bool isShotCancelled;
+    private void EndOfShot()
+    {
+        if (PlayerStats.GetPlayerAmmo() > 0)
+        {
+            AudioSource.PlayClipAtPoint(_shootAC, transform.position);
+
+            Shoot();
+        }
+        else
+        {
+            //TODO
         }
     }
 

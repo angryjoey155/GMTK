@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6916082988393666442}
   - component: {fileID: 7002486074280237110}
   - component: {fileID: 7551613292396799769}
-  - component: {fileID: 8651691594208679385}
   m_Layer: 2
   m_Name: HealthPickUp
   m_TagString: enemy
@@ -171,17 +170,3 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9af949b537adb204c9a05b13eb6b1ecf, type: 3}
   _SecondsBetweenFrames: 0.3
   _isSprite: 1
---- !u!114 &8651691594208679385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2528049737459205787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972530e956b1b1d4c990b56993f1ac30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _destoryTimer:
-    cooldownTime: 5

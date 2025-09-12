@@ -29,6 +29,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<UnityEngine.Animator>();
+        animator.speed = 2; //2X the animation speed
     }
 
     void Update()
@@ -99,13 +100,20 @@ public class Movement : MonoBehaviour
 
         if (baloon)
         {
+            animator.speed = 2f;
             animator.Play("Baloon");
         }
 
         if (rb.velocity != Vector2.zero && !baloon)
+        {
+            animator.speed = 2f;
             animator.Play("Run");
+        }
         else if (!baloon)
+        {
+            animator.speed = 1f; // makes Idle look a bit better than 2X
             animator.Play("Idle");
+        }
 
     }
 

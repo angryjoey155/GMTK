@@ -26,6 +26,9 @@ public class SlowMo : MonoBehaviour
             {
                 StopSlowMotion();
             }
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+                StopSlowMotion();
+
         }
     }
 
