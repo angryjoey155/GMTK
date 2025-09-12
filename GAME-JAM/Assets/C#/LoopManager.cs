@@ -13,7 +13,7 @@ public class LoopManager : MonoBehaviour
     [SerializeField] private List<GameObject> _enemies;
     [SerializeField] private static Cooldown _timeBetweenRounds = new Cooldown();
     [SerializeField] private AudioClip _countdownAC;
-
+    [SerializeField] private AudioClip _finalHitAC;
     static public void ChangeEnemyCounter(int amount)
     {
         _enemyCounter += amount;
@@ -45,6 +45,7 @@ public class LoopManager : MonoBehaviour
             if (readyToPlay)
             {
                 AudioSource.PlayClipAtPoint(_countdownAC, transform.position);
+                AudioSource.PlayClipAtPoint(_finalHitAC, transform.position);
                 readyToPlay = false;
             }
             if (!_timeBetweenRounds.IsCoolingDown)

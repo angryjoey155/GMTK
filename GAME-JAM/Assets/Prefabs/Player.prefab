@@ -333,6 +333,7 @@ MonoBehaviour:
   RecoilPower: 10
   _reloadTime:
     cooldownTime: 3
+  _shootAC: {fileID: 8300000, guid: 0847ad334d81dd04a86efbf44bf787f4, type: 3}
 --- !u!114 &6985772685348090475
 MonoBehaviour:
   m_ObjectHideFlags: 0

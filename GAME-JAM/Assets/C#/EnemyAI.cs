@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] List<Sprite> _HandGunFrame = new List<Sprite>();
     [SerializeField] Animator _handAnimator;
     [SerializeField] Transform ShootPoint;
+    [SerializeField] AudioClip ShootAC;
 
     private bool isAttacking;
     private bool isFacingRight = true;
@@ -78,6 +79,7 @@ public class EnemyAI : MonoBehaviour
                 GameObject Fish = Instantiate(_projectile, ShootPoint.position, Quaternion.identity);
                 Fish.transform.localScale = new Vector3(0.5f,0.5f,1);
                 _timeBetweenShots.StartCooldown();
+                AudioSource.PlayClipAtPoint(ShootAC, transform.position);
             }
         }
         else                    //In Idle State
