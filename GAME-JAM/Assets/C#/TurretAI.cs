@@ -10,6 +10,7 @@ public class TurretAI : MonoBehaviour
     [SerializeField] LayerMask LayerMask;
     [SerializeField] GameObject Gun;
     [SerializeField] Transform ShotLoc;
+    [SerializeField] AudioClip ShootAC;
 
     private bool isAttacking;
     private bool isFacingRight = true;
@@ -53,6 +54,7 @@ public class TurretAI : MonoBehaviour
             {
                 Instantiate(_projectile, ShotLoc.position, Quaternion.identity);
                 _timeBetweenShots.StartCooldown();
+                AudioSource.PlayClipAtPoint(ShootAC, transform.position);
             }
         }
         else                    //In Idle State

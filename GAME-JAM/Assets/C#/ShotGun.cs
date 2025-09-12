@@ -11,7 +11,7 @@ public class ShotGun : MonoBehaviour
     private int _ammoConsumption = -1;
     private bool _isReloading = false;
     [SerializeField] Cooldown _reloadTime;
-
+    [SerializeField] private AudioClip _shootAC;
     GameObject AimRadius;
     
     void Update()
@@ -28,6 +28,7 @@ public class ShotGun : MonoBehaviour
             if (PlayerStats.GetPlayerAmmo() > 0)
             {
                 Shoot();
+                AudioSource.PlayClipAtPoint(_shootAC, transform.position);
             }
             else
             {

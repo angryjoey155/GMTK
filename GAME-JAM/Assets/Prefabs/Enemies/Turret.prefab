@@ -195,6 +195,7 @@ MonoBehaviour:
     m_Bits: 192
   Gun: {fileID: 7253430925844255924}
   ShotLoc: {fileID: 7084284267877010603}
+  ShootAC: {fileID: 8300000, guid: c34a85b1d72ea7a48a64fbc18a8c5c85, type: 3}
 --- !u!114 &774764131104422463
 MonoBehaviour:
   m_ObjectHideFlags: 0

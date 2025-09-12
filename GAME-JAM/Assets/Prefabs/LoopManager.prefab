@@ -48,4 +48,6 @@ MonoBehaviour:
   - {fileID: 1614019973110093903, guid: 97a28fec8c09ce148ad4ce7fc9caa378, type: 3}
   - {fileID: 782553269618638144, guid: 968c75646517ff14e943af76d875a216, type: 3}
   - {fileID: 1909185642470923311, guid: 66098f7dabbdd1d4c99447a3355a023e, type: 3}
+  - {fileID: 2528049737459205787, guid: 74af5097dde2393489df8d0bcda081f7, type: 3}
   _countdownAC: {fileID: 8300000, guid: 980f9851991d76f488ff7bec3e43738f, type: 3}
+  _finalHitAC: {fileID: 8300000, guid: 69f302bce755872448c0e717809a8c20, type: 3}

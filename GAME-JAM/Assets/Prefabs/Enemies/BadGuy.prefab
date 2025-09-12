@@ -206,6 +206,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: db2b1f6a2aff87f4ab9fcba4503ee3da, type: 3}
   _handAnimator: {fileID: 6946794922658852887}
   ShootPoint: {fileID: 7148379087372592912}
+  ShootAC: {fileID: 8300000, guid: c34a85b1d72ea7a48a64fbc18a8c5c85, type: 3}
 --- !u!114 &1267626373739925911
 MonoBehaviour:
   m_ObjectHideFlags: 0
