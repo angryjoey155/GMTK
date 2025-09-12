@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ProjectileSpeed: 10
   _damage: -1
+  _hurtAC: {fileID: 8300000, guid: 61e88ae3e2e42374f87bb9bf128771aa, type: 3}
 --- !u!61 &7139166359512002400
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -332,8 +332,10 @@ MonoBehaviour:
   ShotGunLoc: {fileID: 2693795058488471330}
   RecoilPower: 10
   _reloadTime:
-    cooldownTime: 3
+    cooldownTime: 2
   _shootAC: {fileID: 8300000, guid: 0847ad334d81dd04a86efbf44bf787f4, type: 3}
+  _reloadAC: {fileID: 8300000, guid: c6ff77ff50835874c96649de1813af54, type: 3}
+  _reloadBar: {fileID: 0}
 --- !u!114 &6985772685348090475
 MonoBehaviour:
   m_ObjectHideFlags: 0
