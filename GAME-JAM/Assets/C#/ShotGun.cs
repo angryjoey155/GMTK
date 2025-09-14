@@ -12,7 +12,6 @@ public class ShotGun : MonoBehaviour
     private bool _isReloading = false;
     [SerializeField] Cooldown _reloadTime;
     [SerializeField] private AudioClip _shootAC;
-    [SerializeField] private AudioClip _reloadAC;
     GameObject AimRadius;
 
     [SerializeField] GameObject _reloadBar;
@@ -39,7 +38,6 @@ public class ShotGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
-            AudioSource.PlayClipAtPoint(_reloadAC, transform.position);
             _isReloading = true;
             _reloadBar.SetActive(true);
             _reloadTime.StartCooldown();
