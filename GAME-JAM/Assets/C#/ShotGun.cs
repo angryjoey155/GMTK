@@ -102,6 +102,7 @@ public class ShotGun : MonoBehaviour
         catch { }
         if(totalEnemies >= 1)
             PlayerStats.ChangeAmmo(1);
+        Debug.Log(PlayerStats.GetPlayerAmmo());
     }
     private void Recoil(int amountOfRecoil)
     {
