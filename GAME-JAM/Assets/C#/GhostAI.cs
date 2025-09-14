@@ -14,10 +14,12 @@ public class GhostAI : MonoBehaviour
     [SerializeField] Animator _handAnimator;
     [SerializeField] Transform ShootPoint;
 
+    private bool isAttacking;
     private bool isFacingRight = true;
     private Rigidbody2D rb;
+    private float maxRange = 1;
+    private float minRange = -1;
     private Animator Animator;
-    bool isAttacking;
 
 
     // Start is called before the first frame update

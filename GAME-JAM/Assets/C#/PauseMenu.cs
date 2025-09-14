@@ -27,12 +27,4 @@ public class PauseMenu : MonoBehaviour
         deathScreen.SetActive(true);
         Time.timeScale = 0f;
     }
-    public void HidePauseMenu()
-    {
-        pauseMenu.SetActive(false);
-    }
-    public void HideDeathMenu()
-    {
-        deathScreen.SetActive(false);
-    }
 }

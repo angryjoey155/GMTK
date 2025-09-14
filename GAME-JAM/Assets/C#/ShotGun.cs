@@ -12,9 +12,9 @@ public class ShotGun : MonoBehaviour
     private bool _isReloading = false;
     [SerializeField] Cooldown _reloadTime;
     [SerializeField] private AudioClip _shootAC;
-    [SerializeField] private AudioClip _reloadAC;
     GameObject AimRadius;
 
+    [SerializeField] GameObject _reloadBar;
     
     void Update()
     {
@@ -38,9 +38,8 @@ public class ShotGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
-            AudioSource.PlayClipAtPoint(_reloadAC, transform.position);
             _isReloading = true;
-            ReloadBar.instance.ShowGameObject(true);
+            _reloadBar.SetActive(true);
             _reloadTime.StartCooldown();
         }
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
@@ -73,7 +72,7 @@ public class ShotGun : MonoBehaviour
     {
         _isReloading = false ;
         PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
-        ReloadBar.instance.ShowGameObject(false);
+        _reloadBar.SetActive(false);
 
     }
     private void Shoot()
@@ -95,14 +94,12 @@ public class ShotGun : MonoBehaviour
             }
         }
 
-        Debug.Log(PlayerStats.GetPlayerAmmo());
         Destroy(AimRadius);
         Recoil(totalEnemies);
         }
         catch { }
         if(totalEnemies >= 1)
             PlayerStats.ChangeAmmo(1);
-        Debug.Log(PlayerStats.GetPlayerAmmo());
     }
     private void Recoil(int amountOfRecoil)
     {

@@ -44,3 +44,4 @@ public class SlowMo : MonoBehaviour
         Time.fixedDeltaTime = startFixedDeltaTime;
     }
 }
+
