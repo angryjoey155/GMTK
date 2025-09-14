@@ -95,7 +95,6 @@ public class ShotGun : MonoBehaviour
             }
         }
 
-        Debug.Log(PlayerStats.GetPlayerAmmo());
         Destroy(AimRadius);
         Recoil(totalEnemies);
         }
