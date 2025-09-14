@@ -15,22 +15,21 @@ public class SlowMo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-            Debug.Log(PlayerStats.GetPlayerAmmo());
-        if (PlayerStats.GetPlayerAmmo() <= 0)
-        return;
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))//mouse0 is shoot
+        if (PlayerStats.GetPlayerAmmo() > 0)
         {
-            StartSlowMotion();
-        }
+            if (Input.GetKeyDown(KeyCode.Mouse0))//mouse0 is shoot
+            {
+                StartSlowMotion();
+            }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))//mouse0 is shoot
-        {
-            StopSlowMotion();
+            if (Input.GetKeyUp(KeyCode.Mouse0))//mouse0 is shoot
+            {
+                StopSlowMotion();
+            }
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+                StopSlowMotion();
+
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-            StopSlowMotion();
     }
 
     private void StartSlowMotion()

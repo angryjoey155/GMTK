@@ -20,7 +20,7 @@ public class MazeGenerator : MonoBehaviour
 
     static public MazeGenerator Instance;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
 
