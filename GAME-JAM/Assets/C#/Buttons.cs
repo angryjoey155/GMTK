@@ -4,7 +4,7 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour
+public class Buttons : MonoBehaviour
 {
     public void OnPress()
     {
@@ -12,7 +12,7 @@ public class StartButton : MonoBehaviour
     }
     public void ContinueButton()
     {
-        this.gameObject.SetActive(false);
+        PauseMenu.thisPauseMenu.HidePauseMenu();
         Time.timeScale = 1.0f;
     }
     public void ReturnToMainMenu()
@@ -23,8 +23,10 @@ public class StartButton : MonoBehaviour
     {
         Application.Quit();
     }
-    public void RestartButton()
+    public void Restart()
     {
-
+        LoopManager.instance.Retry();
+        MazeGenerator.Instance.RespawnPlayer();
+        PauseMenu.thisPauseMenu.HideDeathMenu();
     }
 }

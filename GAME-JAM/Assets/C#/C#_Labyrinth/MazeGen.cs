@@ -12,16 +12,20 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] Vector2Int mazeSize;
     [SerializeField] GameObject badGuy;
     [SerializeField] GameObject[] noFloorEnemies;
-
-    static int enemyCount;
+    [SerializeField] GameObject player;
 
     public static List<MazeCell> nodes = new List<MazeCell>();
     private List<MazeCell> occupiedCells = new List<MazeCell>();
     int i = 0;
 
-    private void Awake()
+    static public MazeGenerator Instance;
+
+    private void Start()
     {
+        Instance = this;
+
         GenerateMazeInstant(mazeSize);
+        SpawnPlayer();
         SpawnEnemies();
     }
     void SpawnEnemies()
@@ -33,15 +37,33 @@ public class MazeGenerator : MonoBehaviour
             {
                 Instantiate(badGuy, spawnPoint, Quaternion.identity);
                 occupiedCells.Add(nodes[i]);
-                enemyCount++;
             }
             else if (UnityEngine.Random.value < 0.15f && !occupiedCells.Contains(nodes[i]))
             {
                 Instantiate(noFloorEnemies[UnityEngine.Random.Range(0, noFloorEnemies.Length)], spawnPoint, Quaternion.identity);
                 occupiedCells.Add(nodes[i]);
-                enemyCount++;
             }
         }
+    }
+    MazeCell _playerSpawnNode;
+    void SpawnPlayer()
+    {
+        MazeCell spawnNode = nodes[UnityEngine.Random.Range(0, nodes.Count - 1)];
+        _playerSpawnNode = spawnNode;
+        Vector3 spawnPoint = new Vector3(spawnNode.transform.position.x, spawnNode.transform.position.y);
+        if (spawnNode.HasFloor(3))
+        {
+            occupiedCells.Add(spawnNode);
+            Instantiate(player, spawnPoint, Quaternion.identity);
+        }
+        else
+            SpawnPlayer();
+    }
+
+    public void RespawnPlayer()
+    {
+        player.transform.Translate(_playerSpawnNode.transform.position);
+        PlayerStats.ChangeHealth(3);
     }
     void GenerateMazeInstant(Vector2Int size)
     {

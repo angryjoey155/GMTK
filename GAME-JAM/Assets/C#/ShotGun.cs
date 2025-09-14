@@ -15,7 +15,6 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private AudioClip _reloadAC;
     GameObject AimRadius;
 
-    [SerializeField] GameObject _reloadBar;
     
     void Update()
     {
@@ -41,7 +40,7 @@ public class ShotGun : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(_reloadAC, transform.position);
             _isReloading = true;
-            _reloadBar.SetActive(true);
+            ReloadBar.instance.ShowGameObject(true);
             _reloadTime.StartCooldown();
         }
         bool huh = PlayerStats.GetPlayerAmmo() <= 0;
@@ -74,7 +73,7 @@ public class ShotGun : MonoBehaviour
     {
         _isReloading = false ;
         PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
-        _reloadBar.SetActive(false);
+        ReloadBar.instance.ShowGameObject(false);
 
     }
     private void Shoot()
@@ -96,6 +95,7 @@ public class ShotGun : MonoBehaviour
             }
         }
 
+        Debug.Log(PlayerStats.GetPlayerAmmo());
         Destroy(AimRadius);
         Recoil(totalEnemies);
         }
