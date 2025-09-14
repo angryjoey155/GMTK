@@ -91,9 +91,10 @@ public class Movement : MonoBehaviour
     private void Anims()
     {
         if (PlayerStats.GetPlayerHealth() <= 0)
-        {
+        { 
             animator.Play("Dead");
             rb.gravityScale = 1f;
+            this.enabled = false;
             return;
         }
 

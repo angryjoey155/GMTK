@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class LoopManager : MonoBehaviour
 {
-    public static LoopManager instance;
-
-    public static int _enemyCounter;
+    static int _enemyCounter;
     int _maxCounter;
     GameObject[] _enemyList;
     Vector3[] _enemyLoc;
@@ -24,8 +22,6 @@ public class LoopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
-
         _timeBetweenRounds.cooldownTime = 3f;
         _maxCounter = GameObject.FindGameObjectsWithTag("enemy").Length;
         _enemyCounter = _maxCounter;
@@ -66,18 +62,5 @@ public class LoopManager : MonoBehaviour
         {
             Instantiate(_enemies[_enemyType[i]], _enemyLoc[i], Quaternion.identity);
         }
-        //_enemyList = GameObject.FindGameObjectsWithTag("enemy");
-    }
-
-    public void Retry()
-    {
-        GameObject[] list = new GameObject[GameObject.FindGameObjectsWithTag("enemy").Length];
-        list = GameObject.FindGameObjectsWithTag("enemy");
-        for (int i = 0; i < list.Length;i++)
-        {
-            Debug.Log(list[i]);
-            Destroy(list[i]);
-        }
-        //PLaceGuys();
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: baaa15d3b3f295047ac7cdb3b6333c00
+guid: 8a2fb231b6207b64b9194b2ba8c99989
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,43 +97,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aatbio_com_image_export_Sep_9_2025 (1) (4)_0
+      name: aatbio_com_image_export_Sep_9_2025 (1) (2) 1_0
       rect:
         serializedVersion: 2
-        x: 57
+        x: 51
         y: 0
         width: 516
-        height: 398
+        height: 484
       alignment: 9
-      pivot: {x: 0.5718813, y: 0.29986495}
+      pivot: {x: 0.5329947, y: 0.2839182}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aadef9cd90c8854b8d474b2bbc2c2a9
-      internalID: -783493060
+      spriteID: 1fdd556bb6c4ee84980921e42dc24727
+      internalID: 1280113465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aatbio_com_image_export_Sep_9_2025 (1) (4)_1
+      name: aatbio_com_image_export_Sep_9_2025 (1) (2) 1_1
       rect:
         serializedVersion: 2
-        x: 573
+        x: 554
         y: 0
-        width: 458
-        height: 394
+        width: 476
+        height: 484
       alignment: 9
-      pivot: {x: 0.4694651, y: 0.30400616}
+      pivot: {x: 0.52427095, y: 0.2876871}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9742f5e5f72a2e3429b1ba088fd71314
-      internalID: -839206024
+      spriteID: f8eeab8983225d642a7901b06d460b52
+      internalID: 24789167
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      aatbio_com_image_export_Sep_9_2025 (1) (4)_0: -783493060
-      aatbio_com_image_export_Sep_9_2025 (1) (4)_1: -839206024
+      aatbio_com_image_export_Sep_9_2025 (1) (2) 1_0: 1280113465
+      aatbio_com_image_export_Sep_9_2025 (1) (2) 1_1: 24789167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
