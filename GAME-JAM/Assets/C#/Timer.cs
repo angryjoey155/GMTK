@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
         if (timer <  n)
         {
             var tspan = TimeSpan.FromSeconds(timer);
-            time.text = $"Time: {tspan.Minutes:D2}:{tspan.Seconds:D2}:{tspan.Milliseconds:D2}";
+            pb.text = $"{tspan.Minutes:D2}:{tspan.Seconds:D2}:{tspan.Milliseconds:D2}";
             n = timer;
             timer = 0f;
         }
