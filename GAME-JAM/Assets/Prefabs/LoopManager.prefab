@@ -51,3 +51,4 @@ MonoBehaviour:
   - {fileID: 2528049737459205787, guid: 74af5097dde2393489df8d0bcda081f7, type: 3}
   _countdownAC: {fileID: 8300000, guid: 980f9851991d76f488ff7bec3e43738f, type: 3}
   _finalHitAC: {fileID: 8300000, guid: 69f302bce755872448c0e717809a8c20, type: 3}
+  _killZone: {fileID: 2892883399137762479, guid: a07e93e6038546146a4eac048bcb9762, type: 3}

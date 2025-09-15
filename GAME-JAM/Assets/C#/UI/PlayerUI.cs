@@ -11,7 +11,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Resourses[] healthResource;
     [SerializeField] Resourses[] ammoResource;
 //zero scalability i hate this so much
-
+//
+//its ok this is like our first finished game))
+//Don't beat yourself up too much) loves yous <3
     private void Update()
     {
         HealthChange((int)PlayerStats.GetPlayerHealth(), health);

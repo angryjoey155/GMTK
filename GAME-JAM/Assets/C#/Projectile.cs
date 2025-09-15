@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] float _ProjectileSpeed;
     [SerializeField] int _damage = -1;
+    [SerializeField] AudioClip _hurtAC;
     Vector3 _direction;
     void Start()
     {
@@ -26,6 +27,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(_hurtAC, transform.position);
             PlayerStats.ChangeHealth(_damage);
             Destroy(gameObject);
         }

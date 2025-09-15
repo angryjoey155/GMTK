@@ -8,6 +8,8 @@ public static class PlayerStats
     static int PlayerAmmo = PlayerMaxAmmo;
     public static float PlayerMaxHealth = 3;
     static float PlayerHealth = PlayerMaxHealth;
+    static bool isDead;
+
     public static void ChangeAmmo(int amount)
     {
         if (PlayerAmmo + amount >= 0) PlayerAmmo += amount;                             //if player under or = to 0 then don't change
@@ -18,6 +20,12 @@ public static class PlayerStats
     {
         if (PlayerHealth + amount >= 0) PlayerHealth += amount;                         //if player under or = to 0 then don't change
         if (PlayerMaxHealth < PlayerHealth + amount) PlayerHealth = PlayerMaxHealth;    //if overflow then set health to max
+        if (PlayerHealth <= 0) isDead = true;
+        else isDead = false;
+    }
+    public static bool GetIsDead()
+    {
+        return isDead; 
     }
 
     public static int GetPlayerAmmo()

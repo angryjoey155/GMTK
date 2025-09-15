@@ -34,6 +34,9 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if (PlayerStats.GetIsDead())
+            return;
+
         //used to update movement
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -55,6 +58,8 @@ public class Movement : MonoBehaviour
             baloon= false;
             rb.gravityScale = 4;
         }
+        if (!baloon)
+            rb.gravityScale = 4;
     }
 
     private void Jumping()

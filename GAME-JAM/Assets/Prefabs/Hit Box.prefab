@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ProjectileSpeed: 0
   _damage: -1
+  _hurtAC: {fileID: 8300000, guid: 2a1edd9fadaa64540a00cd620a04ae8e, type: 3}
 --- !u!114 &7947686729597960478
 MonoBehaviour:
   m_ObjectHideFlags: 0

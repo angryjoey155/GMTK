@@ -6,6 +6,8 @@ public class SlowMo : MonoBehaviour
 
     private float startTimescale;
     private float startFixedDeltaTime;
+    static private bool isInSlowMo;
+    public static bool disableSlowMo;
 
     void Start()
     {
@@ -15,19 +17,32 @@ public class SlowMo : MonoBehaviour
 
     void Update()
     {
+        if(disableSlowMo)
+            { return; } 
+        if (PlayerStats.GetIsDead())
+        {
+            if(isInSlowMo) 
+            StopSlowMotion();
+            return;
+        }
         if (PlayerStats.GetPlayerAmmo() > 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))//mouse0 is shoot
             {
                 StartSlowMotion();
+                isInSlowMo = true;
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse0))//mouse0 is shoot
             {
                 StopSlowMotion();
+                isInSlowMo = false;
             }
             if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                isInSlowMo = false; 
                 StopSlowMotion();
+            }
 
         }
     }
@@ -42,6 +57,11 @@ public class SlowMo : MonoBehaviour
     {
         Time.timeScale = startTimescale;
         Time.fixedDeltaTime = startFixedDeltaTime;
+    }
+
+    static public bool GetIsInSlowMo()
+    {
+        return isInSlowMo;
     }
 }
 

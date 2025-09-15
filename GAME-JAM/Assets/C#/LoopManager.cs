@@ -12,11 +12,13 @@ public class LoopManager : MonoBehaviour
     GameObject[] _enemyList;
     Vector3[] _enemyLoc;
     int[] _enemyType;
+    Vector3 _playerStartPos;
 
     [SerializeField] private List<GameObject> _enemies;
     [SerializeField] private static Cooldown _timeBetweenRounds = new Cooldown();
     [SerializeField] private AudioClip _countdownAC;
     [SerializeField] private AudioClip _finalHitAC;
+    [SerializeField] private GameObject _killZone;
     static public void ChangeEnemyCounter(int amount)
     {
         _enemyCounter += amount;
@@ -26,6 +28,7 @@ public class LoopManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        _playerStartPos = Movement.player.gameObject.transform.position;
 
         _timeBetweenRounds.cooldownTime = 3f;
         _maxCounter = GameObject.FindGameObjectsWithTag("enemy").Length;
@@ -44,16 +47,19 @@ public class LoopManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         if (_enemyCounter <= 0)
         {
             if (readyToPlay)
             {
+                SlowMo.disableSlowMo = true;
                 AudioSource.PlayClipAtPoint(_countdownAC, transform.position);
                 AudioSource.PlayClipAtPoint(_finalHitAC, transform.position);
                 readyToPlay = false;
             }
             if (!_timeBetweenRounds.IsCoolingDown)
             {
+                SlowMo.disableSlowMo = false;
                 _enemyCounter = _maxCounter;
                 PLaceGuys();
                 readyToPlay = true;
@@ -71,16 +77,21 @@ public class LoopManager : MonoBehaviour
     public void Restart()
     {
         List<GameObject> list = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy"));
-        Debug.Log("1 " + _enemyCounter);
 
         for(int i = 0; i < list.Count; i++)
         {
             Destroy(list[i]);
         }
-        Debug.Log("2 " + _enemyCounter);
-        _enemyCounter = _maxCounter;
+        ChangeEnemyCounter(_maxCounter);
         PLaceGuys();
-        Debug.Log("3 " + _enemyCounter);
 
+        Movement.player.gameObject.transform.position = _playerStartPos;
+        PlayerStats.ChangeAmmo(3);
+        Instantiate(_killZone,Movement.player.transform);
+        Invoke("AddOneAmmo", 0.005f);
+    }
+    void AddOneAmmo()
+    {
+        PlayerStats.ChangeAmmo(1);
     }
 }

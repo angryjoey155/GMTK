@@ -12,20 +12,34 @@ public class ShotGun : MonoBehaviour
     private bool _isReloading = false;
     [SerializeField] Cooldown _reloadTime;
     [SerializeField] private AudioClip _shootAC;
+    [SerializeField] private AudioClip _ReloadAC;
     GameObject AimRadius;
 
     [SerializeField] GameObject _reloadBar;
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))   //aim in
+        if (PlayerStats.GetIsDead()) 
+        {
+            _isReloading = false ;
+            return; 
+        }
+
+        if (_isReloading && !_reloadTime.IsCoolingDown && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo)
+        {
+            EndReload();
+        }
+        if (_isReloading)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !_isReloading)   //aim in
         {
             if (PlayerStats.GetPlayerAmmo() > 0 && !_isReloading)
             {
                 AimState();
             }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0))     //aim out and shot
+        if (Input.GetKeyUp(KeyCode.Mouse0) && !_isReloading)     //aim out and shot
         {
             if (!isShotCancelled)
             {
@@ -38,15 +52,12 @@ public class ShotGun : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
+            AudioSource.PlayClipAtPoint(_ReloadAC, transform.position);
             _isReloading = true;
             _reloadBar.SetActive(true);
             _reloadTime.StartCooldown();
         }
-        bool huh = PlayerStats.GetPlayerAmmo() <= 0;
-        if (_isReloading && !_reloadTime.IsCoolingDown && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) 
-        {
-                EndReload();
-        }
+        
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Destroy(AimRadius);
