@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LoopManager : MonoBehaviour
 {
+    public static LoopManager instance;
+
     static int _enemyCounter;
     int _maxCounter;
     GameObject[] _enemyList;
@@ -22,6 +25,8 @@ public class LoopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         _timeBetweenRounds.cooldownTime = 3f;
         _maxCounter = GameObject.FindGameObjectsWithTag("enemy").Length;
         _enemyCounter = _maxCounter;
@@ -62,5 +67,20 @@ public class LoopManager : MonoBehaviour
         {
             Instantiate(_enemies[_enemyType[i]], _enemyLoc[i], Quaternion.identity);
         }
+    }
+    public void Restart()
+    {
+        List<GameObject> list = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy"));
+        Debug.Log("1 " + _enemyCounter);
+
+        for(int i = 0; i < list.Count; i++)
+        {
+            Destroy(list[i]);
+        }
+        Debug.Log("2 " + _enemyCounter);
+        _enemyCounter = _maxCounter;
+        PLaceGuys();
+        Debug.Log("3 " + _enemyCounter);
+
     }
 }

@@ -94,7 +94,6 @@ public class Movement : MonoBehaviour
         { 
             animator.Play("Dead");
             rb.gravityScale = 1f;
-            this.enabled = false;
             return;
         }
 

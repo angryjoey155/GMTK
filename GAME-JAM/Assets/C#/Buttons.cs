@@ -4,7 +4,7 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour
+public class Buttons : MonoBehaviour
 {
     public void OnPress()
     {
@@ -25,6 +25,7 @@ public class StartButton : MonoBehaviour
     }
     public void RestartButton()
     {
-
+        LoopManager.instance.Restart();
+        PauseMenu.thisPauseMenu.HideDeathScreen();
     }
 }

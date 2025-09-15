@@ -27,4 +27,10 @@ public class PauseMenu : MonoBehaviour
         deathScreen.SetActive(true);
         Time.timeScale = 0f;
     }
+    public void HideDeathScreen()
+    {
+        PlayerStats.ChangeHealth(3);
+        deathScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }
