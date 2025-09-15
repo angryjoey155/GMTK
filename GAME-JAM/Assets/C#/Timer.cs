@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,7 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI time;
     [SerializeField] TextMeshProUGUI pb;
 
-    float timer;
+    double timer;
     private void Awake()
     {
         instance = this;
@@ -20,19 +21,19 @@ public class Timer : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            time.text = "Time: " + timer.ToString("f2");
+            time.text = "Time: " + TimeSpan.FromSeconds(timer).ToString("mm:ss");
         }
         else
             timer = 0;
     }
 
+    double n = 9999;
     public void OnWin()
     {
-        float n = 9999;
 
         if (timer <  n)
         {
-            pb.text = timer.ToString("f2");
+            pb.text = TimeSpan.FromSeconds(timer).ToString("mm:ss");
             n = timer;
             timer = 0f;
         }
