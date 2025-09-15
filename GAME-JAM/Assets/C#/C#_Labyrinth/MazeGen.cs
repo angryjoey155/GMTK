@@ -149,6 +149,7 @@ public class MazeGenerator : MonoBehaviour
             }
 
             MazeCell lastCell = nodes[currentNodeIndex];
+            
 
             if (possibleDirections.Count == 0 && i == 0)             //check if dead end
             {
@@ -158,6 +159,10 @@ public class MazeGenerator : MonoBehaviour
                     Vector3 deadEnd = new Vector3(nodes[currentNodeIndex].transform.position.x, nodes[currentNodeIndex].transform.position.y, 0);
                     Instantiate(badGuy, deadEnd, Quaternion.identity);
                     occupiedCells.Add(lastCell);
+
+                    occupiedCells.Add(nodes[1]);
+                    occupiedCells.Add(nodes[1 + size.y]);
+                    occupiedCells.Add(nodes[1 + size.x]);
 
                 }
             }

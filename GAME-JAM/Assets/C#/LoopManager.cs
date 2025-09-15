@@ -43,11 +43,15 @@ public class LoopManager : MonoBehaviour
             _enemyType[i] = _enemyList[i].GetComponent<LoopSetter>().type;
         }
     }
-
+    bool roundOver = false;
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if(_enemyCounter <= 0 && !roundOver)
+        {
+            roundOver = true;
+            Timer.instance.OnWin();
+        }
         if (_enemyCounter <= 0)
         {
             if (readyToPlay)
@@ -63,6 +67,7 @@ public class LoopManager : MonoBehaviour
                 _enemyCounter = _maxCounter;
                 PLaceGuys();
                 readyToPlay = true;
+                roundOver = false;
             }
         }
     }

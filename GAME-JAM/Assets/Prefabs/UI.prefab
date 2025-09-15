@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1285169551013097173}
   - component: {fileID: 3143234634025722650}
   - component: {fileID: 4689198121084538921}
+  - component: {fileID: 5883365481352769504}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -92,6 +93,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 3904832963045528038}
   deathScreen: {fileID: 9037413417521007800}
+--- !u!114 &5883365481352769504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342769314435822136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2a1482dda6186448efbd4aee5b63fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 5201526376038784643}
+  pb: {fileID: 2748465633503016423}
 --- !u!1 &432738674866145202
 GameObject:
   m_ObjectHideFlags: 0
