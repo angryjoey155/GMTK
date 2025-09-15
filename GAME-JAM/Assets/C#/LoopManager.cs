@@ -54,6 +54,7 @@ public class LoopManager : MonoBehaviour
         }
         if (_enemyCounter <= 0)
         {
+            DestroyProjectiles();
             if (readyToPlay)
             {
                 SlowMo.disableSlowMo = true;
@@ -69,6 +70,16 @@ public class LoopManager : MonoBehaviour
                 readyToPlay = true;
                 roundOver = false;
             }
+        }
+    }
+    void DestroyProjectiles()
+    {
+        GameObject[] list = new GameObject[GameObject.FindGameObjectsWithTag("Projectile").Length];
+        list = GameObject.FindGameObjectsWithTag("Projectile");
+
+        for (int i = 0; i < list.Length; i++)
+        {
+            Destroy(list[i]);
         }
     }
     bool readyToPlay = true;
@@ -94,6 +105,8 @@ public class LoopManager : MonoBehaviour
         PlayerStats.ChangeAmmo(3);
         Instantiate(_killZone,Movement.player.transform);
         Invoke("AddOneAmmo", 0.005f);
+
+        DestroyProjectiles();
     }
     void AddOneAmmo()
     {

@@ -20,8 +20,8 @@ public class Timer : MonoBehaviour
         if (PlayerStats.GetPlayerHealth() > 0)
         {
             timer += Time.deltaTime;
-
-            time.text = "Time: " + TimeSpan.FromSeconds(timer).ToString("mm:ss");
+            var tspan = TimeSpan.FromSeconds(timer);
+            time.text = $"Time: {tspan.Minutes:D2}:{tspan.Seconds:D2}:{tspan.Milliseconds:D2}";
         }
         else
             timer = 0;
@@ -33,7 +33,8 @@ public class Timer : MonoBehaviour
 
         if (timer <  n)
         {
-            pb.text = TimeSpan.FromSeconds(timer).ToString("mm:ss");
+            var tspan = TimeSpan.FromSeconds(timer);
+            time.text = $"Time: {tspan.Minutes:D2}:{tspan.Seconds:D2}:{tspan.Milliseconds:D2}";
             n = timer;
             timer = 0f;
         }
