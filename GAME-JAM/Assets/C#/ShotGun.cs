@@ -22,6 +22,7 @@ public class ShotGun : MonoBehaviour
         if (PlayerStats.GetIsDead()) 
         {
             _isReloading = false ;
+            _reloadBar.SetActive(false);
             return; 
         }
 
@@ -58,7 +59,7 @@ public class ShotGun : MonoBehaviour
             _reloadTime.StartCooldown();
         }
         
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             Destroy(AimRadius);
             isShotCancelled = true;
@@ -105,11 +106,11 @@ public class ShotGun : MonoBehaviour
             }
         }
 
-        Destroy(AimRadius);
         Recoil(totalEnemies);
         }
         catch { }
-        if(totalEnemies >= 1)
+        Destroy(AimRadius);
+        if (totalEnemies >= 1)
             PlayerStats.ChangeAmmo(1);
     }
     private void Recoil(int amountOfRecoil)

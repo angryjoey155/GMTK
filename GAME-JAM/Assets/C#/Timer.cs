@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
 
         if (timer <  n)
         {
-            pb.text = timer.ToString();
+            pb.text = timer.ToString("f2");
             n = timer;
             timer = 0f;
         }

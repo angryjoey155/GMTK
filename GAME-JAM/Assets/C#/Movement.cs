@@ -35,7 +35,11 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (PlayerStats.GetIsDead())
+        {
+            baloon = false;
+            rb.gravityScale = 4;
             return;
+        }
 
         //used to update movement
         horizontal = Input.GetAxisRaw("Horizontal");
