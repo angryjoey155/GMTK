@@ -17,6 +17,8 @@ public class Timer : MonoBehaviour
     }
     private void Update()
     {
+        if(LoopManager.enemyCounter <= 0)
+            return;
         if (PlayerStats.GetPlayerHealth() > 0)
         {
             timer += Time.deltaTime;

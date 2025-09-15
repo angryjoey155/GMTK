@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour
     }
     public void ContinueButton()
     {
-        this.gameObject.SetActive(false);
+        PauseMenu.thisPauseMenu.HidePauseScreen();
         Time.timeScale = 1.0f;
     }
     public void ReturnToMainMenu()

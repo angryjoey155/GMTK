@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -31,6 +29,11 @@ public class PauseMenu : MonoBehaviour
     {
         PlayerStats.ChangeHealth(3);
         deathScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    public void HidePauseScreen()
+    {
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 }

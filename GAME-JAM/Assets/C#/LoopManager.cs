@@ -7,7 +7,7 @@ public class LoopManager : MonoBehaviour
 {
     public static LoopManager instance;
 
-    static int _enemyCounter;
+    public static int enemyCounter;
     int _maxCounter;
     GameObject[] _enemyList;
     Vector3[] _enemyLoc;
@@ -21,7 +21,7 @@ public class LoopManager : MonoBehaviour
     [SerializeField] private GameObject _killZone;
     static public void ChangeEnemyCounter(int amount)
     {
-        _enemyCounter += amount;
+        enemyCounter += amount;
         _timeBetweenRounds.StartCooldown();
     }
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class LoopManager : MonoBehaviour
 
         _timeBetweenRounds.cooldownTime = 3f;
         _maxCounter = GameObject.FindGameObjectsWithTag("enemy").Length;
-        _enemyCounter = _maxCounter;
+        enemyCounter = _maxCounter;
         _enemyList = new GameObject[_maxCounter];
         _enemyLoc = new Vector3[_maxCounter];
         _enemyType = new int[_maxCounter];
@@ -47,12 +47,12 @@ public class LoopManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(_enemyCounter <= 0 && !roundOver)
+        if(enemyCounter <= 0 && !roundOver)
         {
             roundOver = true;
             Timer.instance.OnWin();
         }
-        if (_enemyCounter <= 0)
+        if (enemyCounter <= 0)
         {
             DestroyProjectiles();
             if (readyToPlay)
@@ -65,7 +65,7 @@ public class LoopManager : MonoBehaviour
             if (!_timeBetweenRounds.IsCoolingDown)
             {
                 SlowMo.disableSlowMo = false;
-                _enemyCounter = _maxCounter;
+                enemyCounter = _maxCounter;
                 PLaceGuys();
                 readyToPlay = true;
                 roundOver = false;
@@ -103,6 +103,8 @@ public class LoopManager : MonoBehaviour
 
         Movement.player.gameObject.transform.position = _playerStartPos;
         PlayerStats.ChangeAmmo(3);
+        PlayerStats.ChangeHealth(4);
+
         Instantiate(_killZone,Movement.player.transform);
         Invoke("AddOneAmmo", 0.005f);
 
