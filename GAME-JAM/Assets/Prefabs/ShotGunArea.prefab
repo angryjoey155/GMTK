@@ -318,5 +318,5 @@ MonoBehaviour:
   frames:
   - {fileID: 21300000, guid: ae19b646ad0ec91488f34d288f489412, type: 3}
   - {fileID: 21300000, guid: 6d68ae1fbb590194cb2d5e67d48df844, type: 3}
-  _SecondsBetweenFrames: 0
+  _SecondsBetweenFrames: 0.3
   _isSprite: 1
