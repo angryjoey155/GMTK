@@ -7,7 +7,7 @@ public class ShotGun : MonoBehaviour
     [SerializeField] Transform ShotGunLoc;
     [SerializeField] int RecoilPower = 300;
     private int _ammoConsumption = -1;
-    private bool _isReloading = false;
+    private static bool _isReloading = false;
     [SerializeField] Cooldown _reloadTime;
     [SerializeField] private AudioClip _shootAC;
     [SerializeField] private AudioClip _ReloadAC;
@@ -45,7 +45,7 @@ public class ShotGun : MonoBehaviour
                 isAimIn = true;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0))     //aim out and shot
+        if (Input.GetKeyUp(KeyCode.Mouse0) && isAimIn)     //aim out and shot
         {
             if (!isShotCancelled)
             {
@@ -148,5 +148,9 @@ public class ShotGun : MonoBehaviour
     private void AimState()
     {
             AimRadius = Instantiate(AimRadiusPrefab, ShotGunLoc);
+    }
+    public static bool GetIsReloading()
+    {
+        return _isReloading;
     }
 }

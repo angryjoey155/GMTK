@@ -17,6 +17,7 @@ public class SlowMo : MonoBehaviour
 
     void Update()
     {
+
         if(disableSlowMo)
             { return; } 
         if (PlayerStats.GetIsDead())
@@ -25,6 +26,8 @@ public class SlowMo : MonoBehaviour
             StopSlowMotion();
             return;
         }
+        if (ShotGun.GetIsReloading())
+            return;
         if (PlayerStats.GetPlayerAmmo() > 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))//mouse0 is shoot
