@@ -8,6 +8,7 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] Vector2Int mazeSize;
     [SerializeField] GameObject badGuy;
     [SerializeField] GameObject[] noFloorEnemies;
+    [SerializeField] GameObject _player;
 
     static int enemyCount;
 
@@ -18,14 +19,11 @@ public class MazeGenerator : MonoBehaviour
     private void Awake()
     {
         GenerateMazeInstant(mazeSize);
-        occupiedCells.Add(nodes[1]);
-        occupiedCells.Add(nodes[1 + mazeSize.y]);
-        occupiedCells.Add(nodes[1 + mazeSize.x]);
         SpawnEnemies();
     }
     void SpawnEnemies()
     {
-        for(int i = 0; i < nodes.Count - 1;  i++)
+        for (int i = 1; i < nodes.Count - 1;  i++)
         {
             Vector3 spawnPoint = new Vector3(nodes[i].transform.position.x, nodes[i].transform.position.y, 0);
             if(UnityEngine.Random.value < 0.10f && nodes[i].HasFloor(3) && !occupiedCells.Contains(nodes[i]))
@@ -60,6 +58,7 @@ public class MazeGenerator : MonoBehaviour
 
         // Choose starting node
         currentPath.Add(nodes[UnityEngine.Random.Range(0, nodes.Count)]);
+        occupiedCells.Add(nodes[0]);
 
         while (completedNodes.Count < nodes.Count)
         {
@@ -152,7 +151,7 @@ public class MazeGenerator : MonoBehaviour
 
             if (possibleDirections.Count == 0 && i == 0)             //check if dead end
             {
-                if (lastCell.HasFloor(3))                           //check if dead end has floor 
+                if (lastCell.HasFloor(3) && !occupiedCells.Contains(nodes[i]))                           //check if dead end has floor 
                 {
                     i++;
                     Vector3 deadEnd = new Vector3(nodes[currentNodeIndex].transform.position.x, nodes[currentNodeIndex].transform.position.y, 0);
@@ -166,6 +165,5 @@ public class MazeGenerator : MonoBehaviour
             else if (possibleDirections.Count > 0)
                 i = 0;
         }
-
     }
 }

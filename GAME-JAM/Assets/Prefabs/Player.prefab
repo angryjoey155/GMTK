@@ -268,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a96e9f2847ded7478444126b74213f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraFade: {fileID: 5380324714937509443, guid: 92c616b4e3153ec4ea15f7595bf00274, type: 3}
   slowMotionTimescale: 0.2
 --- !u!95 &4189533436621106498
 Animator:
@@ -302,6 +301,10 @@ PrefabInstance:
     - target: {fileID: 2892883399137762479, guid: a07e93e6038546146a4eac048bcb9762, type: 3}
       propertyPath: m_Name
       value: Killzone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2892883399137762479, guid: a07e93e6038546146a4eac048bcb9762, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6408030517097167959, guid: a07e93e6038546146a4eac048bcb9762, type: 3}
       propertyPath: m_LocalPosition.x

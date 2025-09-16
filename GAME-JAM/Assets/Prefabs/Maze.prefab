@@ -83,6 +83,7 @@ MonoBehaviour:
   noFloorEnemies:
   - {fileID: 1909185642470923311, guid: 66098f7dabbdd1d4c99447a3355a023e, type: 3}
   - {fileID: 782553269618638144, guid: 968c75646517ff14e943af76d875a216, type: 3}
+  _player: {fileID: 8289932357176193685, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
 --- !u!1001 &6362095090854610539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 8289932357176193685, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289932357176193685, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
