@@ -12,6 +12,7 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private AudioClip _shootAC;
     [SerializeField] private AudioClip _ReloadAC;
     GameObject AimRadius;
+    bool isAimIn;
 
     [SerializeField] GameObject _reloadBar;
     
@@ -31,24 +32,33 @@ public class ShotGun : MonoBehaviour
         if (_isReloading)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !_isReloading)   //aim in
+        if (Input.GetKeyDown(KeyCode.Mouse0))   //aim in
         {
-            if (PlayerStats.GetPlayerAmmo() > 0 && !_isReloading)
+            //try
+            //{
+            //        Destroy(AimRadius);
+            //}
+            //catch { }
+            if (PlayerStats.GetPlayerAmmo() > 0)
             {
                 AimState();
+                isAimIn = true;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0) && !_isReloading)     //aim out and shot
+        if (Input.GetKeyUp(KeyCode.Mouse0))     //aim out and shot
         {
             if (!isShotCancelled)
             {
                 EndOfShot();
+                isAimIn = false;
             }
             else
             {
                 isShotCancelled = false;
             }
         }
+        
+       
         if (Input.GetKeyDown(KeyCode.R) && !_isReloading && PlayerStats.GetPlayerAmmo() < PlayerStats.PlayerMaxAmmo) //Reload
         {
             AudioSource.PlayClipAtPoint(_ReloadAC, transform.position);
@@ -56,13 +66,18 @@ public class ShotGun : MonoBehaviour
             _reloadBar.SetActive(true);
             _reloadTime.StartCooldown();
         }
-        
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isAimIn)
+        {
+            isShotCancelled = true;
+            isAimIn = false;
+        }
+        if (!isAimIn)
         {
             Destroy(AimRadius);
-            isShotCancelled = true;
+
         }
     }
+
     bool isShotCancelled;
     private void EndOfShot()
     {
@@ -80,7 +95,7 @@ public class ShotGun : MonoBehaviour
 
     void EndReload()
     {
-        _isReloading = false ;
+        _isReloading = false;
         PlayerStats.ChangeAmmo(PlayerStats.PlayerMaxAmmo);
         _reloadBar.SetActive(false);
 
