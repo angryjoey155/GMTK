@@ -17,11 +17,13 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
+            Buttons.isPaused = true;
             Time.timeScale = 0f;
         }
     }
     public void DeathScreen()
     {
+        Buttons.isPaused = true;
         deathScreen.SetActive(true);
         Time.timeScale = 0f;
     }
