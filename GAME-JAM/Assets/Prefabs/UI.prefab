@@ -2494,8 +2494,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3143234634025722650}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: ContinueButton
+        m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
+        m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

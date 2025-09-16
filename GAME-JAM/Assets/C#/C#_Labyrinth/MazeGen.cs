@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
@@ -17,6 +18,9 @@ public class MazeGenerator : MonoBehaviour
     private void Awake()
     {
         GenerateMazeInstant(mazeSize);
+        occupiedCells.Add(nodes[1]);
+        occupiedCells.Add(nodes[1 + mazeSize.y]);
+        occupiedCells.Add(nodes[1 + mazeSize.x]);
         SpawnEnemies();
     }
     void SpawnEnemies()
@@ -155,9 +159,7 @@ public class MazeGenerator : MonoBehaviour
                     Instantiate(badGuy, deadEnd, Quaternion.identity);
                     occupiedCells.Add(lastCell);
 
-                    occupiedCells.Add(nodes[1]);
-                    occupiedCells.Add(nodes[1 + size.y]);
-                    occupiedCells.Add(nodes[1 + size.x]);
+
 
                 }
             }
