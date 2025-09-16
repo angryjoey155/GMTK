@@ -6,7 +6,7 @@ public class Buttons : MonoBehaviour
     [SerializeField] AudioClip _SelectAC;
     public void OnPress()
     {
-        AudioSource.PlayClipAtPoint(_SelectAC, transform.position);
+        AudioSource.PlayClipAtPoint(_SelectAC, new Vector3(0,0,0),1f);
 
         Invoke("GoIntoGame", _SelectAC.length/2);
     }
@@ -16,13 +16,13 @@ public class Buttons : MonoBehaviour
     }
     public void ContinueButton()
     {
-        AudioSource.PlayClipAtPoint(_SelectAC, transform.position);
+        AudioSource.PlayClipAtPoint(_SelectAC, new Vector3(0, 0, 0));
         PauseMenu.thisPauseMenu.HidePauseScreen();
         Time.timeScale = 1.0f;
     }
     public void ReturnToMainMenu()
     {
-        AudioSource.PlayClipAtPoint(_SelectAC, transform.position);
+        AudioSource.PlayClipAtPoint(_SelectAC, new Vector3(0, 0, 0));
         SceneManager.LoadScene("MainMenu");
     }
     public void ExitButton()
