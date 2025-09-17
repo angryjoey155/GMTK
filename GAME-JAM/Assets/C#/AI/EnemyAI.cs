@@ -40,6 +40,10 @@ public class EnemyAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (PlayerStats.GetIsDead())
+        {
+            isAttacking = false;
+        }
         CheckState();
         EnemyBehavior();
     }

@@ -21,6 +21,9 @@ public class TurretAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (PlayerStats.GetIsDead()) {
+            isAttacking = false;
+        }
         CheckState();
         EnemyBehavior();
     }

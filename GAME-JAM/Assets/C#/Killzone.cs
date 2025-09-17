@@ -15,7 +15,7 @@ public class Killzone : MonoBehaviour
         Vector3 direction = Movement.player.transform.position - collision.transform.position;
         RaycastHit2D ray = Physics2D.Raycast(collision.transform.position, direction);
 
-        
+
         if (collision.gameObject.CompareTag("enemy"))
         {
             //Debug.Log(collision.gameObject.name);

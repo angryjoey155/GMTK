@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
         _direction = Movement.player.transform.position - transform.position;
         _direction.z = 0;
         _direction.Normalize();
+
     }
 
     // Update is called once per frame

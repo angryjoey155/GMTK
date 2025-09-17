@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class ShotGun : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private AudioClip _ReloadAC;
     GameObject AimRadius;
     bool isAimIn;
+    static bool isShotCancelled;
 
     [SerializeField] GameObject _reloadBar;
     
@@ -20,6 +22,7 @@ public class ShotGun : MonoBehaviour
     {
         if (PlayerStats.GetIsDead()) 
         {
+            isAimIn = false;
             _isReloading = false ;
             _reloadBar.SetActive(false);
             return; 
@@ -50,12 +53,12 @@ public class ShotGun : MonoBehaviour
             if (!isShotCancelled)
             {
                 EndOfShot();
-                isAimIn = false;
             }
             else
             {
                 isShotCancelled = false;
             }
+                isAimIn = false;
         }
         
        
@@ -66,7 +69,7 @@ public class ShotGun : MonoBehaviour
             _reloadBar.SetActive(true);
             _reloadTime.StartCooldown();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1) && isAimIn)
+        if (Input.GetKeyUp(KeyCode.Mouse1) && isAimIn)
         {
             isShotCancelled = true;
             isAimIn = false;
@@ -74,16 +77,15 @@ public class ShotGun : MonoBehaviour
         if (!isAimIn)
         {
             Destroy(AimRadius);
-
+            isShotCancelled = false;
         }
     }
 
-    bool isShotCancelled;
     private void EndOfShot()
     {
         if (PlayerStats.GetPlayerAmmo() > 0)
         {
-            AudioSource.PlayClipAtPoint(_shootAC, transform.position);
+                AudioSource.PlayClipAtPoint(_shootAC, transform.position);
 
             Shoot();
         }
@@ -147,10 +149,25 @@ public class ShotGun : MonoBehaviour
 
     private void AimState()
     {
-            AimRadius = Instantiate(AimRadiusPrefab, ShotGunLoc);
+        Vector3 mouseWorldPosition;
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 direction;
+       
+            mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z;
+            mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            direction = mouseWorldPosition - transform.position;
+       
+
+        AimRadius = Instantiate(AimRadiusPrefab, ShotGunLoc.position, Quaternion.LookRotation(direction, transform.up));
+        AimRadius.transform.SetParent(ShotGunLoc);
     }
     public static bool GetIsReloading()
     {
         return _isReloading;
+    }
+    
+    public static bool GetIsShotCancelled()
+    {
+        return isShotCancelled;
     }
 }

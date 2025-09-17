@@ -17,8 +17,7 @@ public class SlowMo : MonoBehaviour
 
     void Update()
     {
-
-        if(disableSlowMo)
+        if (disableSlowMo)
             { return; } 
         if (PlayerStats.GetIsDead())
         {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 852015339238367743}
   - component: {fileID: 2878043938307740313}
   - component: {fileID: 7139166359512002400}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FishSprite
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 752684577492812517}
   - component: {fileID: 7392817243260901241}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
