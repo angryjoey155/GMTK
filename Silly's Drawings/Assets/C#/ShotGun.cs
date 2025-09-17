@@ -17,9 +17,13 @@ public class ShotGun : MonoBehaviour
     static bool isShotCancelled;
 
     [SerializeField] GameObject _reloadBar;
+    float timeFrame;
+    float frameCanncel = 0.005f;
     
     void Update()
     {
+        timeFrame += Time.deltaTime;
+
         if (PlayerStats.GetIsDead()) 
         {
             isAimIn = false;
@@ -37,6 +41,7 @@ public class ShotGun : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))   //aim in
         {
+            timeFrame = 0;
             //try
             //{
             //        Destroy(AimRadius);
@@ -85,6 +90,7 @@ public class ShotGun : MonoBehaviour
     {
         if (PlayerStats.GetPlayerAmmo() > 0)
         {
+            if(timeFrame >= frameCanncel)
                 AudioSource.PlayClipAtPoint(_shootAC, transform.position);
 
             Shoot();
@@ -104,7 +110,8 @@ public class ShotGun : MonoBehaviour
     }
     private void Shoot()
     {
-        PlayerStats.ChangeAmmo(_ammoConsumption);
+        if (timeFrame >= frameCanncel)
+            PlayerStats.ChangeAmmo(_ammoConsumption);
         List<GameObject> temp = null;
         int totalEnemies = 0    ;
         try
@@ -120,8 +127,8 @@ public class ShotGun : MonoBehaviour
                 Destroy(temp[i]);
             }
         }
-
-        Recoil(totalEnemies);
+            if (timeFrame >= frameCanncel)
+                Recoil(totalEnemies);
         }
         catch { }
         Destroy(AimRadius);
