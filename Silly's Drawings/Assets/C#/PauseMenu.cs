@@ -14,8 +14,11 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            LoopManager.countdownAudioSource.Pause();
+            Destroy(GameObject.FindGameObjectWithTag("AimRadius"));
             pauseMenu.SetActive(true);
             Buttons.isPaused = true;
             Time.timeScale = 0f;

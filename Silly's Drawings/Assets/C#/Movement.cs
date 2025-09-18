@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private UnityEngine.Animator animator;
 
     private float horizontal;
-    [SerializeField] public static float PlayerSpeed = 2f;
+    [SerializeField] public float PlayerSpeed = 2f;
     [SerializeField] private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+
         if (PlayerStats.GetIsDead())
         {
             baloon = false;
@@ -78,6 +79,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {//Movement
+
         rb.velocity += new Vector2(horizontal * PlayerSpeed, 0);
         if (rb.velocity.x >= speedCap || rb.velocity.x <= -speedCap)
         {

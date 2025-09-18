@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7020304885549886692}
   m_Layer: 2
   m_Name: ShotGunArea
-  m_TagString: Untagged
+  m_TagString: AimRadius
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 1682909245237306709}
   m_Layer: 2
   m_Name: ShotgGunArea
-  m_TagString: Untagged
+  m_TagString: AimRadius
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 129459013409516034}
   m_Layer: 2
   m_Name: ShotGun
-  m_TagString: Untagged
+  m_TagString: AimRadius
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

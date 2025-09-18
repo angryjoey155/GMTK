@@ -78,12 +78,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 3454611014636471199, guid: fb845fd7ef30f074497710259c5a46df, type: 3}
-  mazeSize: {x: 5, y: 8}
+  mazeSize: {x: 8, y: 5}
   badGuy: {fileID: 1614019973110093903, guid: 97a28fec8c09ce148ad4ce7fc9caa378, type: 3}
   noFloorEnemies:
   - {fileID: 1909185642470923311, guid: 66098f7dabbdd1d4c99447a3355a023e, type: 3}
   - {fileID: 782553269618638144, guid: 968c75646517ff14e943af76d875a216, type: 3}
-  _player: {fileID: 8289932357176193685, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
+  _player: {fileID: 3116898072494716158}
 --- !u!1001 &6362095090854610539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,5 +148,10 @@ PrefabInstance:
 --- !u!4 &158957049316897500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6520659613681366199, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
+  m_PrefabInstance: {fileID: 6362095090854610539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3116898072494716158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8289932357176193685, guid: 6cbee6199e84ba34482030c2be42a5bc, type: 3}
   m_PrefabInstance: {fileID: 6362095090854610539}
   m_PrefabAsset: {fileID: 0}

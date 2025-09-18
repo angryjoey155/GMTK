@@ -5,20 +5,22 @@ using UnityEngine;
 public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] MazeCell nodePrefab;
-    [SerializeField] Vector2Int mazeSize;
+    [SerializeField] Vector2Int mazeSize = new Vector2Int(8,5);
     [SerializeField] GameObject badGuy;
     [SerializeField] GameObject[] noFloorEnemies;
     [SerializeField] GameObject _player;
 
     static int enemyCount;
 
-    public static List<MazeCell> nodes = new List<MazeCell>();
+    public static List<MazeCell> nodes;
     private List<MazeCell> occupiedCells = new List<MazeCell>();
     int i = 0;
 
     private void Awake()
     {
+        nodes = new List<MazeCell>();
         GenerateMazeInstant(mazeSize);
+        
         SpawnEnemies();
     }
     void SpawnEnemies()

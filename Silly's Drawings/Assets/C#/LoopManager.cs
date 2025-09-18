@@ -17,10 +17,15 @@ public class LoopManager : MonoBehaviour
     [SerializeField] private AudioClip _countdownAC;
     [SerializeField] private AudioClip _finalHitAC;
     [SerializeField] private GameObject _killZone;
+    [SerializeField] public static AudioSource countdownAudioSource;
     static public void ChangeEnemyCounter(int amount)
     {
         enemyCounter += amount;
         _timeBetweenRounds.StartCooldown();
+    }
+    private void Awake()
+    {
+        countdownAudioSource = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start()
@@ -56,7 +61,7 @@ public class LoopManager : MonoBehaviour
             if (readyToPlay)
             {
                 SlowMo.disableSlowMo = true;
-                AudioSource.PlayClipAtPoint(_countdownAC, transform.position);
+                countdownAudioSource.Play();
                 AudioSource.PlayClipAtPoint(_finalHitAC, transform.position);
                 readyToPlay = false;
             }

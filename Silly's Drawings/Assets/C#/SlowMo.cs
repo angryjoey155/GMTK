@@ -11,6 +11,7 @@ public class SlowMo : MonoBehaviour
 
     void Start()
     {
+        Time.fixedDeltaTime = 0.02f;
         startTimescale = Time.timeScale;
         startFixedDeltaTime = Time.fixedDeltaTime;
     }
