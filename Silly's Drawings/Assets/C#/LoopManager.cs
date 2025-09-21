@@ -61,6 +61,8 @@ public class LoopManager : MonoBehaviour
             if (readyToPlay)
             {
                 SlowMo.disableSlowMo = true;
+                Time.timeScale = 1.0f;
+                Time.fixedDeltaTime = 0.02f;
                 countdownAudioSource.Play();
                 AudioSource.PlayClipAtPoint(_finalHitAC, transform.position);
                 readyToPlay = false;
