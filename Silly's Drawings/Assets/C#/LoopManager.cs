@@ -6,6 +6,7 @@ public class LoopManager : MonoBehaviour
     public static LoopManager instance;
 
     public static int enemyCounter;
+    public static bool roundOver = false;
     int _maxCounter;
     GameObject[] _enemyList;
     Vector3[] _enemyLoc;
@@ -46,7 +47,6 @@ public class LoopManager : MonoBehaviour
             _enemyType[i] = _enemyList[i].GetComponent<LoopSetter>().type;
         }
     }
-    bool roundOver = false;
     // Update is called once per frame
     void FixedUpdate()
     {

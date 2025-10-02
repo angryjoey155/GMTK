@@ -9,6 +9,7 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] GameObject badGuy;
     [SerializeField] GameObject[] noFloorEnemies;
     [SerializeField] GameObject _player;
+    [SerializeField] GameObject _warning;
 
     static int enemyCount;
 
@@ -23,6 +24,29 @@ public class MazeGenerator : MonoBehaviour
         
         SpawnEnemies();
     }
+    List<GameObject> warnings = new List<GameObject>();
+    bool loop = false;
+    private void Update()
+    {
+        if (LoopManager.roundOver)
+        {
+            for (i = 1; i < occupiedCells.Count; i++)
+            {
+                GameObject g = Instantiate(_warning, occupiedCells[i].transform.position, Quaternion.identity);
+                warnings.Add(g); 
+            }
+            loop = true;
+        }
+        if (!LoopManager.roundOver && loop == true)
+        {
+            foreach (GameObject i  in warnings)
+            {
+                Destroy(i);
+            }
+            loop = false;
+        }
+    }
+
     void SpawnEnemies()
     {
         for (int i = 1; i < nodes.Count - 1;  i++)
