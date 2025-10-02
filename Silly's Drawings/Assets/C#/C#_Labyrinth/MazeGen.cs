@@ -28,7 +28,7 @@ public class MazeGenerator : MonoBehaviour
     bool loop = false;
     private void Update()
     {
-        if (LoopManager.roundOver)
+        if (LoopManager.roundOver && !loop)
         {
             for (i = 1; i < occupiedCells.Count; i++)
             {
