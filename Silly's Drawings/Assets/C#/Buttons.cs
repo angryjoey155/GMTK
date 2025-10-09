@@ -29,7 +29,8 @@ public class Buttons : MonoBehaviour
     }
     public void ContinueButton()
     {
-        LoopManager.countdownAudioSource.Play();
+        if (LoopManager.enemyCounter <= 0)
+            LoopManager.countdownAudioSource.Play();
         isPaused = false;
         AudioSource.PlayClipAtPoint(_SelectAC, new Vector3(0, 0, 0));
         PauseMenu.thisPauseMenu.HidePauseScreen();

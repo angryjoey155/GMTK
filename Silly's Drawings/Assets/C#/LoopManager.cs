@@ -50,6 +50,7 @@ public class LoopManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log(enemyCounter);
         if(enemyCounter <= 0 && !roundOver)
         {
             roundOver = true;
